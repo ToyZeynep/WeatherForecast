@@ -58,8 +58,9 @@ final class CityListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        interactor?.getLocation()
+       interactor?.getLocation()
         cityListTableView.register(UINib(nibName: "CityListTableViewCell", bundle: nil), forCellReuseIdentifier: "CityList")
+    
     }
     
     @IBAction func cityListSortButtonTapped(_ sender: Any) {
@@ -86,7 +87,7 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.cityNameLabel.text = model.title
-        cell.cityCellImageView.kf.setImage(with: URL(string: "https://listelist.com/wp-content/uploads/2014/12/seattle1-listelist-620x375.jpg"))
+        //cell.cityCellImageView.kf.setImage(with: URL(string: "https://listelist.com/wp-content/uploads/2014/12/seattle1-listelist-620x375.jpg"))
     
         return cell
     }
@@ -97,7 +98,31 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+}
+
+
+extension CityListViewController : UISearchBarDelegate {
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(CityListViewController.reload), object: nil)
+        self.perform(#selector(CityListViewController.reload), with: nil, afterDelay: 0.7)
+    }
     
+    @objc func reload() {
+        guard let searchText = cityListSearcBar.text else { return }
+        if searchText == "" {
+            self.viewModel?.cityList.removeAll()
+            interactor?.getLocation()
+            cityListTableView.reloadData()
+        } else {
+            search(searchText: searchText)
+        }
+    }
     
+    func search(searchText: String){
+        var params = [String: Any]()
+        params["query"] = searchText
+        interactor?.fetchCityList(params: params)
+        
+    }
 }
