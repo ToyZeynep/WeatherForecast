@@ -91,6 +91,7 @@
 		22008D2C27C76F81004727B2 /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
+				22008D6727C7A373004727B2 /* CityDetails */,
 				22008D4A27C776D2004727B2 /* Network */,
 				22008D4127C7719B004727B2 /* Data */,
 				22008D5327C77CBE004727B2 /* CityList */,
@@ -162,6 +163,13 @@
 				22008D6227C7858F004727B2 /* CityListTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		22008D6727C7A373004727B2 /* CityDetails */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CityDetails;
 			sourceTree = "<group>";
 		};
 		6F481C50087CFE8EB5486AD6 /* Frameworks */ = {
