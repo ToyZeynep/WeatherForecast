@@ -19,7 +19,7 @@ class CityDetailsViewController: UIViewController {
     var router: (CityDetailsRoutingLogic & CityDetailsDataPassing)?
     var viewModel : CityDetails.Fetch.ViewModel?
     var weatherModel: Weather.Fetch.ViewModel?
-
+    var gridFlowLayout = GridFlowLayout()
     // MARK: Object lifecycle
 
     @IBOutlet weak var cityDetailsCollectionView: UICollectionView!
@@ -54,6 +54,7 @@ class CityDetailsViewController: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        cityDetailsCollectionView.collectionViewLayout = gridFlowLayout
         let nib = UINib(nibName: "CityDetailsCollectionViewCell", bundle: nil)
         cityDetailsCollectionView.register(nib, forCellWithReuseIdentifier: "CityDetails")
     }

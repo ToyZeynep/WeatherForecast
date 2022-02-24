@@ -42,6 +42,6 @@ class CityDetailsPresenter: CityDetailsPresentationLogic {
                                                                             humidity:  $0.humidity))
            
         }
-        viewController?.presentCityWeather(viewModel: Weather.Fetch.ViewModel(WeatherDetails: weatherDetails))
+        viewController?.presentCityWeather(viewModel: Weather.Fetch.ViewModel(weatherDetails: weatherDetails))
     }
 }
