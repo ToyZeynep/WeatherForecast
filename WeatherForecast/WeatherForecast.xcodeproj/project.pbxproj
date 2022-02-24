@@ -38,6 +38,7 @@
 		22008D7E27C7B859004727B2 /* CityDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22008D7C27C7B859004727B2 /* CityDetailsCollectionViewCell.xib */; };
 		22008D8127C7BBAD004727B2 /* GridFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22008D8027C7BBAD004727B2 /* GridFlowLayout.swift */; };
 		22008D8327C7C50A004727B2 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22008D8227C7C50A004727B2 /* Alert.swift */; };
+		22008D8527C7C621004727B2 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22008D8427C7C621004727B2 /* ViewExtension.swift */; };
 		6E19A2D463417A90DE037E67 /* Pods_WeatherForecast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0673FC9D82556732CB2B0BD8 /* Pods_WeatherForecast.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		22008D7C27C7B859004727B2 /* CityDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
 		22008D8027C7BBAD004727B2 /* GridFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridFlowLayout.swift; sourceTree = "<group>"; };
 		22008D8227C7C50A004727B2 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		22008D8427C7C621004727B2 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		BDA8E562C49E3A347D431751 /* Pods-WeatherForecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.debug.xcconfig"; path = "Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.debug.xcconfig"; sourceTree = "<group>"; };
 		C4B2818039283DE8982A2FCC /* Pods-WeatherForecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.release.xcconfig"; path = "Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -217,6 +219,7 @@
 			children = (
 				22008D8027C7BBAD004727B2 /* GridFlowLayout.swift */,
 				22008D8227C7C50A004727B2 /* Alert.swift */,
+				22008D8427C7C621004727B2 /* ViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				22008D5227C77BBD004727B2 /* ApiClient.swift in Sources */,
 				22008D4527C773A9004727B2 /* CityListResponse.swift in Sources */,
 				22008D5027C77A03004727B2 /* ApiEndPoints.swift in Sources */,
+				22008D8527C7C621004727B2 /* ViewExtension.swift in Sources */,
 				22008D6927C7AF33004727B2 /* CityDetailsWorker.swift in Sources */,
 				22008D4927C77473004727B2 /* WeatherDetails.swift in Sources */,
 				22008D6F27C7B111004727B2 /* CityDetailsInteractor.swift in Sources */,
