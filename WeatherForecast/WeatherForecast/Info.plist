@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>For weather forecasts, you need to share your location information.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>For weather forecasts, you need to share your location information.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>For weather forecasts, you need to share your location information.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -16,7 +22,7 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
+					<string>CityList</string>
 				</dict>
 			</array>
 		</dict>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--City List View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="CityListViewController" customModule="WeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="azd-TK-HkS">
+                                <rect key="frame" x="0.0" y="54" width="370" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="sKx-Ma-rU5"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="qKQ-nj-kD0"/>
+                                </connections>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ch6-2c-jPm">
+                                <rect key="frame" x="379" y="54" width="45" height="45"/>
+                                <color key="backgroundColor" red="0.23574497699999999" green="0.0279549859" blue="0.31577493690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="ICn-mE-K4J"/>
+                                    <constraint firstAttribute="width" constant="45" id="gzP-83-UKz"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="cityListSortButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="FTb-ll-2Ba"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OoU-mM-uAB">
+                                <rect key="frame" x="0.0" y="99" width="414" height="763"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="0dC-cI-X7K"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="Cwy-62-sE9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OoU-mM-uAB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="14l-nE-8Qx"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="OoU-mM-uAB" secondAttribute="bottom" id="3QL-Gi-nB3"/>
+                            <constraint firstItem="ch6-2c-jPm" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="5fo-yb-uDp"/>
+                            <constraint firstItem="azd-TK-HkS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="6a3-XG-BtC"/>
+                            <constraint firstItem="azd-TK-HkS" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="CcC-Yx-cvW"/>
+                            <constraint firstItem="ch6-2c-jPm" firstAttribute="leading" secondItem="azd-TK-HkS" secondAttribute="trailing" constant="9" id="EjQ-o3-YDP"/>
+                            <constraint firstItem="OoU-mM-uAB" firstAttribute="top" secondItem="azd-TK-HkS" secondAttribute="bottom" id="clK-4S-DHS"/>
+                            <constraint firstItem="ch6-2c-jPm" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="10" id="dvZ-7H-5qe"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OoU-mM-uAB" secondAttribute="trailing" id="plV-wU-dOc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cityListSearcBar" destination="azd-TK-HkS" id="TLJ-Jg-FVn"/>
+                        <outlet property="cityListSortButton" destination="ch6-2c-jPm" id="Kqr-yT-aKx"/>
+                        <outlet property="cityListTableView" destination="OoU-mM-uAB" id="THI-4h-Qtc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="93.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
