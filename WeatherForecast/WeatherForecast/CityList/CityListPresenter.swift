@@ -15,12 +15,16 @@ protocol CityListPresentationLogic: AnyObject {
 
 final class CityListPresenter: CityListPresentationLogic {
     
+    weak var viewController: CityListDisplayLogic?
+    
     func presentCityList(response: CityList.Fetch.Response) {
         var cityList: [CityList.Fetch.ViewModel.City] = []
         
         response.cityList.forEach {
             cityList.append(CityList.Fetch.ViewModel.City(distance: $0.distance, title: $0.title, location_type: $0.location_type, woeid: $0.woeid, latt_long: $0.latt_long))
         }
+        
+        viewController?.displayCityList(viewModel: CityList.Fetch.ViewModel(cityList: cityList))
     }
 }
 
