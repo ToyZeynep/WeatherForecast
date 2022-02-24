@@ -45,9 +45,9 @@ enum Weather
         
         struct ViewModel
         {
-            var consolidatedWeather: [Weather.Fetch.ViewModel.Consolidated]
+            var WeatherDetails: [Weather.Fetch.ViewModel.WeatherDetails]
             
-            struct Consolidated {
+            struct WeatherDetails {
                 
             let weather_state_name : String?
             let applicable_date : String?
