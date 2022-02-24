@@ -54,7 +54,8 @@ class CityDetailsViewController: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        let nib = UINib(nibName: "CityDetailsCollectionViewCell", bundle: nil)
+        cityDetailsCollectionView.register(nib, forCellWithReuseIdentifier: "CityDetails")
     }
 }
 
@@ -69,3 +70,19 @@ extension CityDetailsViewController :  CityDetailsDisplayLogic{
       
     }
 }
+
+extension CityDetailsViewController: UICollectionViewDataSource {
+   
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return weatherModel?.weatherDetails.count ?? 0
+       
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailsCell", for: indexPath) as! CityDetailsCollectionViewCell
+        let model = self.weatherModel?.weatherDetails[indexPath.item]
+        return cell
+    }
+}
+

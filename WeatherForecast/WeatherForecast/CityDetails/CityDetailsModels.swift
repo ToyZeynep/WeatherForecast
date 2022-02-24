@@ -45,7 +45,7 @@ enum Weather
         
         struct ViewModel
         {
-            var WeatherDetails: [Weather.Fetch.ViewModel.WeatherDetails]
+            var weatherDetails: [Weather.Fetch.ViewModel.WeatherDetails]
             
             struct WeatherDetails {
                 
