@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 
 protocol CityListDisplayLogic: AnyObject
@@ -85,10 +86,13 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.cityNameLabel.text = model.title
+        cell.cityCellImageView.kf.setImage(with: URL(string: "https://listelist.com/wp-content/uploads/2014/12/seattle1-listelist-620x375.jpg"))
+    
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        router?.routeToCityDetails(index: indexPath.row)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
