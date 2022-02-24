@@ -23,8 +23,8 @@ class CityDetailsViewController: UIViewController {
     // MARK: Object lifecycle
 
     @IBOutlet weak var cityDetailsCollectionView: UICollectionView!
-    
     @IBOutlet weak var detailsLabel: UILabel!
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -54,9 +54,10 @@ class CityDetailsViewController: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        interactor?.fetchCityDetails()
         cityDetailsCollectionView.collectionViewLayout = gridFlowLayout
         let nib = UINib(nibName: "CityDetailsCollectionViewCell", bundle: nil)
-        cityDetailsCollectionView.register(nib, forCellWithReuseIdentifier: "CityDetails")
+        cityDetailsCollectionView.register(nib, forCellWithReuseIdentifier: "detailsCell")
     }
 }
 
@@ -68,13 +69,14 @@ extension CityDetailsViewController :  CityDetailsDisplayLogic{
     
     func displayCityDetails(viewModel: CityDetails.Fetch.ViewModel) {
         self.viewModel = viewModel
+        detailsLabel.text = viewModel.title
       
     }
 }
 
 extension CityDetailsViewController: UICollectionViewDataSource {
    
-
+  
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return weatherModel?.weatherDetails.count ?? 0
        
@@ -83,6 +85,7 @@ extension CityDetailsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailsCell", for: indexPath) as! CityDetailsCollectionViewCell
         let model = self.weatherModel?.weatherDetails[indexPath.item]
+        cell.testLabel.text = model?.weather_state_name
         return cell
     }
 }

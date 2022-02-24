@@ -9,6 +9,7 @@ import UIKit
 
 class CityDetailsCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var testLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
       
