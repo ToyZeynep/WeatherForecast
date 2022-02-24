@@ -10,44 +10,48 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityList" rowHeight="102" id="KGk-i7-Jjw" customClass="CityListTableViewCell" customModule="WeatherForecast" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="602" height="102"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityList" rowHeight="206" id="KGk-i7-Jjw" customClass="CityListTableViewCell" customModule="WeatherForecast" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="653" height="206"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="602" height="102"/>
+                <rect key="frame" x="0.0" y="0.0" width="653" height="206"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gfp-6f-Fxs">
-                        <rect key="frame" x="0.0" y="1" width="602" height="100"/>
+                        <rect key="frame" x="-1" y="3" width="655" height="200"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0cd-5Q-lol">
-                                <rect key="frame" x="0.0" y="0.0" width="602" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="655" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="6lw-GW-EiN"/>
+                                    <constraint firstAttribute="height" constant="200" id="nvA-ic-QKb"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEK-fl-UZA">
-                                <rect key="frame" x="15" y="27" width="579" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEK-fl-UZA">
+                                <rect key="frame" x="15" y="27" width="632" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0cd-5Q-lol" firstAttribute="height" secondItem="Gfp-6f-Fxs" secondAttribute="height" id="C8l-jJ-412"/>
-                            <constraint firstItem="0cd-5Q-lol" firstAttribute="width" secondItem="Gfp-6f-Fxs" secondAttribute="width" id="GqS-OU-LUW"/>
-                            <constraint firstAttribute="bottom" secondItem="uEK-fl-UZA" secondAttribute="bottom" constant="52" id="k2h-De-1dE"/>
-                            <constraint firstItem="uEK-fl-UZA" firstAttribute="top" secondItem="Gfp-6f-Fxs" secondAttribute="top" constant="27" id="lTC-z1-Ze9"/>
-                            <constraint firstAttribute="trailing" secondItem="uEK-fl-UZA" secondAttribute="trailing" constant="8" id="uug-zv-vpF"/>
-                            <constraint firstAttribute="height" constant="100" id="xmc-4u-ach"/>
-                            <constraint firstItem="uEK-fl-UZA" firstAttribute="leading" secondItem="Gfp-6f-Fxs" secondAttribute="leading" constant="15" id="ztH-eq-LdE"/>
+                            <constraint firstAttribute="bottom" secondItem="0cd-5Q-lol" secondAttribute="bottom" id="LOX-hC-t6c"/>
+                            <constraint firstAttribute="trailing" secondItem="0cd-5Q-lol" secondAttribute="trailing" id="LoU-vh-7Io"/>
+                            <constraint firstItem="0cd-5Q-lol" firstAttribute="top" secondItem="Gfp-6f-Fxs" secondAttribute="top" id="PTy-AK-cVG"/>
+                            <constraint firstItem="0cd-5Q-lol" firstAttribute="leading" secondItem="Gfp-6f-Fxs" secondAttribute="leading" id="Z7K-xs-3kg"/>
+                            <constraint firstItem="0cd-5Q-lol" firstAttribute="leading" secondItem="Gfp-6f-Fxs" secondAttribute="leading" id="dWt-k5-tts"/>
+                            <constraint firstAttribute="trailing" secondItem="0cd-5Q-lol" secondAttribute="trailing" id="j0f-Qd-6Ar"/>
+                            <constraint firstItem="0cd-5Q-lol" firstAttribute="top" secondItem="Gfp-6f-Fxs" secondAttribute="top" id="ru6-zR-UK4"/>
+                            <constraint firstAttribute="height" constant="200" id="y0L-as-GX3"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Gfp-6f-Fxs" secondAttribute="trailing" id="FqY-Qc-FSX"/>
-                    <constraint firstItem="0cd-5Q-lol" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="GKq-WR-lN3"/>
-                    <constraint firstItem="Gfp-6f-Fxs" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Zdi-ZE-0lU"/>
-                    <constraint firstItem="0cd-5Q-lol" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="fgd-U6-CRo"/>
-                    <constraint firstItem="Gfp-6f-Fxs" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="lHj-Rg-fcj"/>
+                    <constraint firstItem="Gfp-6f-Fxs" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1.00306" id="3Lw-VM-QRJ"/>
+                    <constraint firstItem="Gfp-6f-Fxs" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="MC4-Sm-wLe"/>
+                    <constraint firstItem="Gfp-6f-Fxs" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cCb-5s-aeh"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -55,7 +59,7 @@
                 <outlet property="cityCellImageView" destination="0cd-5Q-lol" id="ytS-5p-bVl"/>
                 <outlet property="cityNameLabel" destination="uEK-fl-UZA" id="kjm-ZE-0CU"/>
             </connections>
-            <point key="canvasLocation" x="42.028985507246382" y="87.053571428571431"/>
+            <point key="canvasLocation" x="541.304347826087" y="145.3125"/>
         </tableViewCell>
     </objects>
     <resources>
