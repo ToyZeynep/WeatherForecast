@@ -53,7 +53,9 @@ final class CityListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //self.navigationController?.navigationBar.isHidden = true
+        self.title = "CityList"
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
+
     }
     
     override func viewDidLoad() {
@@ -86,8 +88,10 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.cityNameLabel.text = model.title
-        
-        setImage(index: indexPath.row, imageView: cell.cityCellImageView)
+        let randomNumber = Int.random(in: 0...3)
+        let imagesArr = [URLString.image0.rawValue ,URLString.image1.rawValue ,URLString.image2.rawValue,URLString.image3.rawValue,URLString.image4.rawValue,URLString.image5.rawValue,URLString.image6.rawValue,URLString.image7.rawValue,URLString.image8.rawValue , URLString.image9.rawValue]
+             
+        cell.cityCellImageView.kf.setImage(with: URL(string: imagesArr[indexPath.row] ))
         return cell
     }
     
@@ -99,33 +103,10 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func setImage(index: Int , imageView: UIImageView){
-        switch index {
-        case 0:
-            imageView.kf.setImage(with: URL(string: "https://listelist.com/wp-content/uploads/2014/12/seattle1-listelist-620x375.jpg"))
-        case 1:
-            imageView.kf.setImage(with: URL(string: "https://www.webtekno.com/images/editor/default/0002/44/d91091ba1036af6bcd708fba6514035a59c54c80.jpeg"))
-        case 2:
-            imageView.kf.setImage(with: URL(string: "https://blog-biletall.mncdn.com/wp-content/uploads/2015/11/kiz-kulesi-istanbul.jpg"))
-        case 3:
-            imageView.kf.setImage(with: URL(string: "https://2.bp.blogspot.com/-ipl3SSQIHJQ/WtjvgT0wWrI/AAAAAAAADFs/9au1QxhMHoU6QTgeRr8lsWxtvzsmeXdzQCLcBGAs/s1600/tokyo4.jpg"))
-        case 4:
-            imageView.kf.setImage(with: URL(string: "https://media-cdn.t24.com.tr/media/library/2019/02/1549032671414-109328.jpg"))
-        case 5:
-            imageView.kf.setImage(with: URL(string: "https://i0.wp.com/thegeyik.com/wp-content/uploads/2015/02/Hong-Kong.jpg"))
-        case 6:
-            imageView.kf.setImage(with: URL(string:"https://static9.depositphotos.com/1010683/1238/i/600/depositphotos_12384660-stock-photo-singapore-city-skyline-at-night.jpg"))
-        case 7:
-            imageView.kf.setImage(with: URL(string: "https://listelist.com/wp-content/uploads/2014/12/seattle1-listelist-620x375.jpg"))
-        case 9:
-            imageView.kf.setImage(with: URL(string: "https://im.haberturk.com/2019/11/15/ver1573819707/2540687_1024x576.jpg"))
-        case 10:
-            imageView.kf.setImage(with: URL(string: "https://pixabay.com/photos/buildings-city-illuminated-1804481/"))
-       
-        default:
-            break
+     
         }
     }
-}
+
 
 extension CityListViewController : UISearchBarDelegate {
     
