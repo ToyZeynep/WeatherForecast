@@ -19,6 +19,9 @@ final class CityListViewController: UIViewController {
     var router: (CityListRoutingLogic & CityListDataPassing)?
     var viewModel: CityList.Fetch.ViewModel?
 
+    @IBOutlet weak var cityListTableView: UITableView!
+    @IBOutlet weak var cityListSortButton: UIButton!
+    @IBOutlet weak var cityListSearcBar: UISearchBar!
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -30,16 +33,7 @@ final class CityListViewController: UIViewController {
         super.init(coder: aDecoder)
         setup()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-     
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
+  
     // MARK: - Setup Clean Code Design Pattern
     
     private func setup() {
@@ -53,6 +47,20 @@ final class CityListViewController: UIViewController {
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+     
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    @IBAction func cityListSortButtonTapped(_ sender: Any) {
     }
 }
 
