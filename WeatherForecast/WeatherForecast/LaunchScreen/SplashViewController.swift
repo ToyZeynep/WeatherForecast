@@ -6,24 +6,22 @@
 //
 
 import UIKit
+import SwiftGifOrigin
 
 class SplashViewController: UIViewController {
-
+    
+    @IBOutlet weak var splashImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        splashImageView.loadGif(asset: "splash")
+        splashImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [self] in
+            let storyBoard = UIStoryboard(name: "CityList", bundle: nil)
+            let destVC: CityListViewController = storyBoard.instantiateViewController(identifier: "CityList")
+            destVC.modalPresentationStyle = .fullScreen
+            navigationController?.pushViewController(destVC, animated: true)
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

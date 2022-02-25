@@ -27,6 +27,6 @@ class CityListRouter: CityListRoutingLogic, CityListDataPassing {
     var currentCity = dataStore?.cityList?[index]
     destVC.router?.dataStore?.woeid = currentCity!.woeid
     destVC.modalPresentationStyle = .fullScreen
-        viewController?.navigationController?.pushViewController(destVC, animated: true)
+    viewController?.navigationController?.pushViewController(destVC, animated: true)
     }
 }

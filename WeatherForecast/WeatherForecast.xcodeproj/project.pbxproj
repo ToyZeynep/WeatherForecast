@@ -534,9 +534,12 @@
 				DEVELOPMENT_TEAM = 2LVW678G5P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherForecast/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "For weather forecasts, you need to share your location information.";
+				INFOPLIST_KEY_NSLocationUsageDescription = "For weather forecasts, you need to share your location information.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For weather forecasts, you need to share your location information.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = CityList;
+				INFOPLIST_KEY_UIMainStoryboardFile = Launch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -563,9 +566,12 @@
 				DEVELOPMENT_TEAM = 2LVW678G5P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherForecast/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "For weather forecasts, you need to share your location information.";
+				INFOPLIST_KEY_NSLocationUsageDescription = "For weather forecasts, you need to share your location information.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For weather forecasts, you need to share your location information.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = CityList;
+				INFOPLIST_KEY_UIMainStoryboardFile = Launch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

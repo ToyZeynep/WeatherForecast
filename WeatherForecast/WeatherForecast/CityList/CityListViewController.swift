@@ -55,9 +55,9 @@ final class CityListViewController: UIViewController {
         super.viewWillAppear(animated)
         self.title = "CityList"
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
-
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
        interactor?.getLocation()
