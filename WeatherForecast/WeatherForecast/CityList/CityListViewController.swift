@@ -53,14 +53,15 @@ final class CityListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.title = "CityList"
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
        interactor?.getLocation()
         cityListTableView.register(UINib(nibName: "CityListTableViewCell", bundle: nil), forCellReuseIdentifier: "CityList")
-    
     }
     
     @IBAction func cityListSortButtonTapped(_ sender: Any) {
@@ -87,8 +88,10 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.cityNameLabel.text = model.title
-        //cell.cityCellImageView.kf.setImage(with: URL(string: "https://listelist.com/wp-content/uploads/2014/12/seattle1-listelist-620x375.jpg"))
-    
+        let randomNumber = Int.random(in: 0...3)
+        let imagesArr = [URLString.image0.rawValue ,URLString.image1.rawValue ,URLString.image2.rawValue,URLString.image3.rawValue,URLString.image4.rawValue,URLString.image5.rawValue,URLString.image6.rawValue,URLString.image7.rawValue,URLString.image8.rawValue , URLString.image9.rawValue]
+             
+        cell.cityCellImageView.kf.setImage(with: URL(string: imagesArr[indexPath.row] ))
         return cell
     }
     
@@ -96,9 +99,13 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         router?.routeToCityDetails(index: indexPath.row)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 200
     }
-}
+    
+    func setImage(index: Int , imageView: UIImageView){
+     
+        }
+    }
 
 
 extension CityListViewController : UISearchBarDelegate {
