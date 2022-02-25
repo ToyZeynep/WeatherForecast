@@ -113,7 +113,7 @@
                     </view>
                     <connections>
                         <outlet property="cityDetailsCollectionView" destination="b6D-Xo-MLs" id="Nso-V2-QNo"/>
-                        <outlet property="cityDetailsHumidityLabel" destination="ScZ-SI-Kwf" id="JeQ-sd-54I"/>
+                        <outlet property="cityDetailsHumidityLabel" destination="pvK-jk-0T6" id="FLw-Wv-lgJ"/>
                         <outlet property="cityDetailsImageView" destination="ScZ-SI-Kwf" id="KOa-vl-AG7"/>
                         <outlet property="cityDetailsStatusImageView" destination="TU7-n2-r0U" id="SqH-F2-gtr"/>
                         <outlet property="cityDetailsTempLabel" destination="EwY-ai-VhF" id="2rl-v0-jsS"/>
