@@ -11,7 +11,7 @@ import UIKit
 class GridFlowLayout: UICollectionViewFlowLayout {
     
     // here you can define the height of each cell
-    let itemHeight: CGFloat = 400
+    let itemHeight: CGFloat = 200
     
     override init() {
         super.init()
@@ -27,7 +27,7 @@ class GridFlowLayout: UICollectionViewFlowLayout {
      */
     func setupLayout() {
         minimumInteritemSpacing = 1
-        minimumLineSpacing = 10
+        minimumLineSpacing = 5
         scrollDirection = .horizontal
     }
     /// here we define the width of each cell, creating a 2 column layout. In case you would create 3 columns, change the number 2 to 3

@@ -12,12 +12,13 @@ protocol CityDetailsDisplayLogic: AnyObject
 {
   
     func presentCityWeather(viewModel: Weather.Fetch.ViewModel)
-
+    func presentCityTitle(viewModel: CityDetails.Fetch.ViewModel)
 }
 
 class CityDetailsViewController: UIViewController {
     var interactor: CityDetailsBusinessLogic?
     var router: (CityDetailsRoutingLogic & CityDetailsDataPassing)?
+    var viewModel: CityDetails.Fetch.ViewModel?
     var weatherModel: Weather.Fetch.ViewModel?
     var gridFlowLayout = GridFlowLayout()
 
@@ -59,6 +60,7 @@ class CityDetailsViewController: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         interactor?.fetchCityDetails()
         cityDetailsCollectionView.collectionViewLayout = gridFlowLayout
         let nib = UINib(nibName: "CityDetailsCollectionViewCell", bundle: nil)
@@ -67,15 +69,29 @@ class CityDetailsViewController: UIViewController {
 }
 
 extension CityDetailsViewController :  CityDetailsDisplayLogic{
+    func presentCityTitle(viewModel: CityDetails.Fetch.ViewModel) {
+        self.viewModel = viewModel
+        cityDetailsTitleLabel.text = viewModel.title
+    }
+    
     func presentCityWeather(viewModel: Weather.Fetch.ViewModel) {
         self.weatherModel = viewModel
         cityDetailsCollectionView.reloadData()
+        selectDay(index: 0)
     }
+    
+    func selectDay(index: Int ){
+        
+        var model =  self.weatherModel?.weatherDetails[index]
+        self.cityDetailsHumidityLabel.text = "%" + (model?.humidity?.toString())!
+        self.cityDetailsWindSpeedLabel.text = (model?.wind_speed?.toString())! + ("m/s")
+        self.cityDetailsTempLabel.text = ((model?.the_temp!.toString())!) + "°C"
+    }
+    
 }
 
 extension CityDetailsViewController: UICollectionViewDataSource {
    
-  
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return weatherModel?.weatherDetails.count ?? 0
        
@@ -85,7 +101,12 @@ extension CityDetailsViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailsCell", for: indexPath) as! CityDetailsCollectionViewCell
         let model = self.weatherModel?.weatherDetails[indexPath.item]
         cell.testLabel.text = model?.weather_state_name
+        //did select item çalışmadığı için tap gesture ekledim(extension kullandım)
+        cell.addTapGesture { [self] in
+            selectDay(index: indexPath.item )
+        }
         return cell
     }
+  
 }
 
