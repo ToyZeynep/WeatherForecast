@@ -9,16 +9,13 @@ import UIKit
 
 enum CityList
 {
-    
     enum Fetch
     {
         struct Response{
-            
             var cityList : [CityListResponse]
         }
         
         struct ViewModel{
-            
             var cityList: [CityList.Fetch.ViewModel.City]
             
             struct City {

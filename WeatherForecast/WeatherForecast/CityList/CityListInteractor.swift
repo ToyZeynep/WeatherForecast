@@ -12,7 +12,6 @@ import CoreLocation
 protocol CityListBusinessLogic: AnyObject {
     func fetchCityList(params: [String: Any])
     func getLocation()
-    
 }
 
 protocol CityListDataStore: AnyObject {
@@ -31,6 +30,7 @@ final class CityListInteractor: NSObject ,CityListBusinessLogic, CityListDataSto
     }
     
     func getLocation(){
+        
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -42,6 +42,7 @@ final class CityListInteractor: NSObject ,CityListBusinessLogic, CityListDataSto
     }
     
     func checkLocationPermission() {
+        
         switch self.locationManager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse, .authorized:
             locationManager.requestLocation()
@@ -63,7 +64,6 @@ final class CityListInteractor: NSObject ,CityListBusinessLogic, CityListDataSto
     }
     
     func fetchCityList(params: [String: Any] ){
-        //getWeather
         
         self.worker?.getCityList(params: params) {[weak self] result in
             switch result {
@@ -79,7 +79,9 @@ final class CityListInteractor: NSObject ,CityListBusinessLogic, CityListDataSto
 }
 
 extension CityListInteractor: CLLocationManagerDelegate{
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         let userLocation :CLLocation = locations[0] as CLLocation
         print("user latitude = \(userLocation.coordinate.latitude)")
         print("user longitude = \(userLocation.coordinate.longitude)")

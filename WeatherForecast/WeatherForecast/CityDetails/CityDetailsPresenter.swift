@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 protocol CityDetailsPresentationLogic {
-
     func presentCityWeather(response: Weather.Fetch.Response)
     func presentCityTitle(response: CityDetails.Fetch.Response)
     func presentAlert(title: String , message: String )
@@ -17,11 +16,11 @@ protocol CityDetailsPresentationLogic {
 }
 
 class CityDetailsPresenter: CityDetailsPresentationLogic {
-   
+    
     weak var viewController: CityDetailsDisplayLogic?
     
-
     func presentCityTitle(response: CityDetails.Fetch.Response){
+        
         viewController?.presentCityTitle(viewModel: CityDetails.Fetch.ViewModel(title: response.city?.title))
     }
     func presentCityWeather(response: Weather.Fetch.Response){
@@ -43,10 +42,12 @@ class CityDetailsPresenter: CityDetailsPresentationLogic {
     }
     
     func presentAlert(title: String , message: String){
+        
         Alert.alert(title: title , message: message)
     }
     
     func presentAlertAction(title: String , message: String , action: UIAlertAction) {
+        
         Alert.alertAction(title: title, message: message, action: action)
     }
 }

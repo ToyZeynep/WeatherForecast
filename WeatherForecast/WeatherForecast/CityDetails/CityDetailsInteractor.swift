@@ -25,10 +25,10 @@ class CityDetailsInteractor: CityDetailsBusinessLogic, CityDetailsDataStore {
     
     init(worker: CityDetailsWorkingLogic) {
         self.worker = worker
-       
     }
     
     func fetchCityDetails(){
+        
         let param: Int = (city?.woeid)!
         let params: String = String(param)
         self.worker.getCityDetails(params: params){[weak self] result in
@@ -43,7 +43,7 @@ class CityDetailsInteractor: CityDetailsBusinessLogic, CityDetailsDataStore {
                 }
                 self?.presenter?.presentCityWeather(response: Weather.Fetch.Response(weatherDetails: weatherDetails))
                 self?.presenter?.presentCityTitle(response: CityDetails.Fetch.Response(city: city))
-               case .failure(let error):
+            case .failure(let error):
                 self!.presenter?.presentAlert(title: "Error!", message: error.localizedDescription)
             }
         }

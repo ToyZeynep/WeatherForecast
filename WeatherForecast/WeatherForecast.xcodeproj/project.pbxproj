@@ -181,11 +181,11 @@
 			isa = PBXGroup;
 			children = (
 				22008D6627C78595004727B2 /* Cell */,
-				22008D5427C77CED004727B2 /* CityListWorker.swift */,
-				22008D5627C77E19004727B2 /* CityListModels.swift */,
 				22008D5C27C7810F004727B2 /* CityListViewController.swift */,
 				22008D5827C77EDD004727B2 /* CityListInteractor.swift */,
+				22008D5427C77CED004727B2 /* CityListWorker.swift */,
 				22008D5A27C78074004727B2 /* CityListPresenter.swift */,
+				22008D5627C77E19004727B2 /* CityListModels.swift */,
 				22008D5E27C7824B004727B2 /* CityListRouter.swift */,
 				22008D6027C782E5004727B2 /* CityList.storyboard */,
 			);
@@ -205,11 +205,11 @@
 			isa = PBXGroup;
 			children = (
 				22008D7A27C7B839004727B2 /* Cell */,
-				22008D6827C7AF33004727B2 /* CityDetailsWorker.swift */,
-				22008D6C27C7B058004727B2 /* CityDetailsModels.swift */,
-				22008D6E27C7B111004727B2 /* CityDetailsInteractor.swift */,
-				22008D7027C7B297004727B2 /* CityDetailsPresenter.swift */,
 				22008D7227C7B400004727B2 /* CityDetailsViewController.swift */,
+				22008D6E27C7B111004727B2 /* CityDetailsInteractor.swift */,
+				22008D6827C7AF33004727B2 /* CityDetailsWorker.swift */,
+				22008D7027C7B297004727B2 /* CityDetailsPresenter.swift */,
+				22008D6C27C7B058004727B2 /* CityDetailsModels.swift */,
 				22008D7427C7B677004727B2 /* CityDetailsRouter.swift */,
 				22008D7627C7B726004727B2 /* CityDetails.storyboard */,
 			);

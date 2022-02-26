@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 @objc protocol CityDetailsRoutingLogic {
- func popOver()
+    func popOver()
 }
 
 protocol CityDetailsDataPassing {
@@ -19,8 +19,9 @@ protocol CityDetailsDataPassing {
 class CityDetailsRouter: NSObject, CityDetailsRoutingLogic, CityDetailsDataPassing {
     weak var viewController: CityDetailsViewController?
     var dataStore: CityDetailsDataStore?
-
+    
     func popOver(){
+        
         viewController?.navigationController?.popViewController(animated: true)
     }
 }

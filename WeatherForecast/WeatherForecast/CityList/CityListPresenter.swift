@@ -20,6 +20,7 @@ final class CityListPresenter: CityListPresentationLogic {
     weak var viewController: CityListDisplayLogic?
     
     func presentCityList(response: CityList.Fetch.Response) {
+        
         var cityList: [CityList.Fetch.ViewModel.City] = []
         
         response.cityList.forEach {
@@ -30,10 +31,12 @@ final class CityListPresenter: CityListPresentationLogic {
     }
     
     func presentAlert(title: String , message: String){
+        
         Alert.alert(title: title , message: message)
     }
     
     func presentAlertAction(title: String , message: String , action: UIAlertAction) {
+        
         Alert.alertAction(title: title, message: message, action: action)
     }
 }

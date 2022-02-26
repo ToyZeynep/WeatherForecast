@@ -19,11 +19,10 @@ class SplashViewController: UIViewController {
         splashImageView.translatesAutoresizingMaskIntoConstraints = false
         splashImageView.contentMode = .scaleAspectFit
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [self] in
-                   let storyBoard = UIStoryboard(name: "CityList", bundle: nil)
-                   let destVC: CityListViewController = storyBoard.instantiateViewController(identifier: "CityList")
-                   destVC.modalPresentationStyle = .fullScreen
-                   navigationController?.pushViewController(destVC, animated: true)
-            
+            let storyBoard = UIStoryboard(name: "CityList", bundle: nil)
+            let destVC: CityListViewController = storyBoard.instantiateViewController(identifier: "CityList")
+            destVC.modalPresentationStyle = .fullScreen
+            navigationController?.pushViewController(destVC, animated: true)
         }
     }
 }
