@@ -16,6 +16,9 @@ class CityDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cellDateLabel: UILabel!
     @IBOutlet weak var cellImageView: UIImageView!
     @IBOutlet weak var cellTempLabel: UILabel!
+    @IBOutlet weak var weekDayLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
       
@@ -36,9 +39,12 @@ class CityDetailsCollectionViewCell: UICollectionViewCell {
     func configure(viewModel: Weather.Fetch.ViewModel.WeatherDetails){
         cellTempLabel.text = (viewModel.the_temp?.toString())! +  "°"
         cellDateLabel.text = viewModel.applicable_date
-        cellWindLabel.text = (viewModel.wind_speed?.toString())! + "m/s"
-        cellHumidityLabel.text = "%" + (viewModel.humidity?.toString())!
+        cellWindLabel.text = "Wind: " + (viewModel.wind_speed?.toString())! + " m/s"
+        cellHumidityLabel.text = "Humidity: %" + (viewModel.humidity?.toString())!
         setImage(status: viewModel.weather_state_name!)
+        let dateFormatter = DateFormatter(format: "yyyy-MM-dd")
+        cellDateLabel.text = viewModel.applicable_date?.toDateString(dateFormatter: dateFormatter, outputFormat: "dd MMMM")
+        weekDayLabel.text = viewModel.applicable_date?.toDateString(dateFormatter: dateFormatter, outputFormat: "EEEE")
     }
     
     func setImage(status: String){

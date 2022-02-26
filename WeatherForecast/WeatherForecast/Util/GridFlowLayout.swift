@@ -11,7 +11,7 @@ import UIKit
 class GridFlowLayout: UICollectionViewFlowLayout {
     
     // here you can define the height of each cell
-    let itemHeight: CGFloat = 220
+    let itemHeight: CGFloat = 250
     
     override init() {
         super.init()

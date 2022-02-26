@@ -29,6 +29,7 @@ class CityDetailsViewController: UIViewController {
     @IBOutlet weak var cityDetailsWindSpeedLabel: UILabel!
     @IBOutlet weak var cityDetailsHumidityLabel: UILabel!
   
+    @IBOutlet weak var cityDetailsWeekDayLabel: UILabel!
     @IBOutlet weak var cityDetailsTempLabel: UILabel!
     
     // MARK: Object lifecycle
@@ -92,6 +93,7 @@ extension CityDetailsViewController :  CityDetailsDisplayLogic{
         cityDetailsCollectionView.reloadData()
         selectDay(index: 0)
         
+        
     }
     
     func selectDay(index: Int ){
@@ -100,6 +102,9 @@ extension CityDetailsViewController :  CityDetailsDisplayLogic{
         self.cityDetailsWindSpeedLabel.text = (model?.wind_speed?.toString())! + ("m/s")
         self.cityDetailsTempLabel.text = ((model?.the_temp!.toString())!) + "°C"
         setGif(status: (model?.weather_state_name)!)
+        weekDay(dateString: (model?.applicable_date)!)
+        let dateFormatter = DateFormatter(format: "yyyy-MM-dd")
+        cityDetailsWeekDayLabel.text = model?.applicable_date!.toDateString(dateFormatter: dateFormatter, outputFormat: "EEEE")
     }
     
     func setGif(status: String ){
@@ -118,11 +123,19 @@ extension CityDetailsViewController :  CityDetailsDisplayLogic{
         default: break
 
         }
+    }
+    
+    func weekDay(dateString: String){
         
-        
-        
-        
-        
+        let dateFormatter = DateFormatter(format: "yyyy-MM-dd")
+        let date = Date()
+        print("aranan  \(dateString.toDateString(dateFormatter: dateFormatter, outputFormat: "EEEE"))")
+        print("original String with date:               \(dateString)")
+        print("date String() to Date():                 \(dateString.toDate(dateFormatter: dateFormatter))")
+        print("date String() to formated date String(): \(dateString.toDateString(dateFormatter: dateFormatter, outputFormat: "dd MMMM"))")
+        let dateFormatter2 = DateFormatter(format: "dd MMM HH:mm")
+        print("format Date():                           \(date.toString(dateFormatter: dateFormatter2)!)")
+       
     }
 }
 
@@ -141,7 +154,7 @@ extension CityDetailsViewController: UICollectionViewDataSource {
         cell.addTapGesture { [self] in
             selectDay(index: indexPath.item )
         }
-        
+    
         return cell
     }
   
