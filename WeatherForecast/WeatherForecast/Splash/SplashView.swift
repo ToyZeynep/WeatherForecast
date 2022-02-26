@@ -18,7 +18,7 @@ class SplashViewController: UIViewController {
         splashImageView.loadGif(asset: "seasons")
         splashImageView.translatesAutoresizingMaskIntoConstraints = false
         splashImageView.contentMode = .scaleAspectFit
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [self] in
                    let storyBoard = UIStoryboard(name: "CityList", bundle: nil)
                    let destVC: CityListViewController = storyBoard.instantiateViewController(identifier: "CityList")
                    destVC.modalPresentationStyle = .fullScreen
