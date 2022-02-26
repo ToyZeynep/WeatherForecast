@@ -10,6 +10,8 @@ import UIKit
 
 protocol CityListPresentationLogic: AnyObject {
     func presentCityList(response: CityList.Fetch.Response)
+    func presentAlert(title: String , message: String)
+    func presentAlertAction(title: String , message: String , action: UIAlertAction)
     
 }
 
@@ -25,6 +27,14 @@ final class CityListPresenter: CityListPresentationLogic {
         }
         
         viewController?.displayCityList(viewModel: CityList.Fetch.ViewModel(cityList: cityList))
+    }
+    
+    func presentAlert(title: String , message: String){
+        Alert.alert(title: title , message: message)
+    }
+    
+    func presentAlertAction(title: String , message: String , action: UIAlertAction) {
+        Alert.alertAction(title: title, message: message, action: action)
     }
 }
 

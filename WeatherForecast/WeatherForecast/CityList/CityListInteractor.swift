@@ -38,6 +38,28 @@ final class CityListInteractor: NSObject ,CityListBusinessLogic, CityListDataSto
         if CLLocationManager.locationServicesEnabled(){
             locationManager.startUpdatingLocation()
         }
+        checkLocationPermission()
+    }
+    
+    func checkLocationPermission() {
+        switch self.locationManager.authorizationStatus {
+        case .authorizedAlways, .authorizedWhenInUse, .authorized:
+            locationManager.requestLocation()
+        case .denied, .restricted:
+            let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    UIApplication.shared.open(settingsUrl, completionHandler: nil)
+                }
+            }
+            presenter?.presentAlertAction(title: "Error!", message: "Share your location information for a better experience", action: settingsAction)
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        @unknown default:
+            fatalError()
+        }
     }
     
     func fetchCityList(params: [String: Any] ){
@@ -49,8 +71,8 @@ final class CityListInteractor: NSObject ,CityListBusinessLogic, CityListDataSto
                 self?.cityList = response
                 guard let cityList = self?.cityList else { return }
                 self?.presenter?.presentCityList(response: CityList.Fetch.Response(cityList:cityList))
-            case .failure(let error): break
-                //error
+            case .failure(let error):
+                self?.presenter?.presentAlert(title: "Error", message: error.localizedDescription)
             }
         }
     }
@@ -68,6 +90,10 @@ extension CityListInteractor: CLLocationManagerDelegate{
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Error \(error)")
+        
+        let alertAction = UIAlertAction(title: "Try Again", style: .default) { [self] action in
+            self.checkLocationPermission()
+        }
+        self.presenter?.presentAlertAction(title: "Error!", message: "Location not found", action: alertAction)
     }
 }
