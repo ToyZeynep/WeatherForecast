@@ -10,7 +10,6 @@ import UIKit
 import CoreLocation
 
 protocol CityListBusinessLogic: AnyObject {
-    
     func fetchCityList(params: [String: Any])
     func getLocation()
     
