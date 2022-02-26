@@ -113,7 +113,7 @@ extension CityDetailsViewController :  CityDetailsDisplayLogic{
         case WeatherStatus.heavyRain.rawValue : cityDetailsImageView.loadGif(asset: "heavyRain")
         case WeatherStatus.lightRain.rawValue : cityDetailsImageView.loadGif(asset: "lightRain")
         case WeatherStatus.heavyCloud.rawValue : cityDetailsImageView.loadGif(asset: "heavyCloud")
-        case WeatherStatus.lightCloud.rawValue : cityDetailsImageView.loadGif(asset: "lightCloudy")
+        case WeatherStatus.lightCloud.rawValue : cityDetailsImageView.loadGif(asset: "lightCloud")
         case WeatherStatus.clear.rawValue : cityDetailsImageView.loadGif(asset: "clear")
         default: break
 
