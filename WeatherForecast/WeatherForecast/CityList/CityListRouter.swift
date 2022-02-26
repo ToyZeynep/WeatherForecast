@@ -21,12 +21,12 @@ class CityListRouter: CityListRoutingLogic, CityListDataPassing {
     var dataStore: CityListDataStore?
  
     func routeToCityDetails(index: Int) {
-     //   let storyBoard = UIStoryboard(name: "CityDetails", bundle: nil)
-     //   let destVC: CityDetailsViewController = storyBoard.instantiateViewController(identifier: "CityDetails")
-     //   // data passing sample
-     //   var currentCity = dataStore?.cityList?[index]
-     //   destVC.router?.dataStore?.woeid = currentCity!.woeid
-     //   destVC.modalPresentationStyle = .fullScreen
-     //   self.viewController?.present(destVC, animated: true, completion: nil)
+    let storyBoard = UIStoryboard(name: "CityDetails", bundle: nil)
+    let destVC: CityDetailsViewController = storyBoard.instantiateViewController(identifier: "CityDetails")
+    // data passing sample
+    var currentCity = dataStore?.cityList?[index]
+    destVC.router?.dataStore?.woeid = currentCity!.woeid
+    destVC.modalPresentationStyle = .fullScreen
+    viewController?.navigationController?.pushViewController(destVC, animated: true)
     }
 }

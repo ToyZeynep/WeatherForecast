@@ -8,4 +8,5 @@ target 'WeatherForecast' do
   # Pods for WeatherForecast
   pod 'Alamofire', '~> 5.5'
   pod 'Kingfisher', '~> 7.0'
+  pod 'SwiftGifOrigin', '~> 1.7.0'
 end

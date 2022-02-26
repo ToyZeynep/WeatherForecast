@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol CityDetailsDisplayLogic: AnyObject
 {
-    func displayCityDetails(viewModel: CityDetails.Fetch.ViewModel)
+  
     func presentCityWeather(viewModel: Weather.Fetch.ViewModel)
 
 }
@@ -17,14 +18,18 @@ protocol CityDetailsDisplayLogic: AnyObject
 class CityDetailsViewController: UIViewController {
     var interactor: CityDetailsBusinessLogic?
     var router: (CityDetailsRoutingLogic & CityDetailsDataPassing)?
-    var viewModel : CityDetails.Fetch.ViewModel?
     var weatherModel: Weather.Fetch.ViewModel?
     var gridFlowLayout = GridFlowLayout()
-    // MARK: Object lifecycle
 
+    @IBOutlet weak var cityDetailsImageView: UIImageView!
     @IBOutlet weak var cityDetailsCollectionView: UICollectionView!
-    @IBOutlet weak var detailsLabel: UILabel!
+    @IBOutlet weak var cityDetailsTitleLabel: UILabel!
+    @IBOutlet weak var cityDetailsWindSpeedLabel: UILabel!
+    @IBOutlet weak var cityDetailsHumidityLabel: UILabel!
+    @IBOutlet weak var cityDetailsStatusImageView: UIImageView!
+    @IBOutlet weak var cityDetailsTempLabel: UILabel!
     
+    // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -65,12 +70,6 @@ extension CityDetailsViewController :  CityDetailsDisplayLogic{
     func presentCityWeather(viewModel: Weather.Fetch.ViewModel) {
         self.weatherModel = viewModel
         cityDetailsCollectionView.reloadData()
-    }
-    
-    func displayCityDetails(viewModel: CityDetails.Fetch.ViewModel) {
-        self.viewModel = viewModel
-        detailsLabel.text = viewModel.title
-      
     }
 }
 
