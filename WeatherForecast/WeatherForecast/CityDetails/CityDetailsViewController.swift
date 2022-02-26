@@ -11,7 +11,6 @@ import SwiftGifOrigin
 
 protocol CityDetailsDisplayLogic: AnyObject
 {
-  
     func presentCityWeather(viewModel: Weather.Fetch.ViewModel)
     func presentCityTitle(viewModel: CityDetails.Fetch.ViewModel)
 }
@@ -21,8 +20,10 @@ class CityDetailsViewController: UIViewController {
     var router: (CityDetailsRoutingLogic & CityDetailsDataPassing)?
     var viewModel: CityDetails.Fetch.ViewModel?
     var weatherModel: Weather.Fetch.ViewModel?
+    
     var gridFlowLayout = GridFlowLayout()
     var timer = Timer()
+    
     @IBOutlet weak var cityDetailsImageView: UIImageView!
     @IBOutlet weak var cityDetailsCollectionView: UICollectionView!
     @IBOutlet weak var cityDetailsTitleLabel: UILabel!
@@ -76,8 +77,8 @@ class CityDetailsViewController: UIViewController {
         let nib = UINib(nibName: "CityDetailsCollectionViewCell", bundle: nil)
         cityDetailsCollectionView.register(nib, forCellWithReuseIdentifier: "detailsCell")
     }
+    
     @objc func callme() {
-      //  timer.invalidate()
         CustomLoader.instance.hideLoaderView()
     }
 }
@@ -92,8 +93,6 @@ extension CityDetailsViewController :  CityDetailsDisplayLogic{
         self.weatherModel = viewModel
         cityDetailsCollectionView.reloadData()
         selectDay(index: 0)
-        
-        
     }
     
     func selectDay(index: Int ){
@@ -102,14 +101,12 @@ extension CityDetailsViewController :  CityDetailsDisplayLogic{
         self.cityDetailsWindSpeedLabel.text = (model?.wind_speed?.toString())! + ("m/s")
         self.cityDetailsTempLabel.text = ((model?.the_temp!.toString())!) + "°C"
         setGif(status: (model?.weather_state_name)!)
-        weekDay(dateString: (model?.applicable_date)!)
         let dateFormatter = DateFormatter(format: "yyyy-MM-dd")
         cityDetailsWeekDayLabel.text = model?.applicable_date!.toDateString(dateFormatter: dateFormatter, outputFormat: "EEEE")
     }
     
     func setGif(status: String ){
         switch status {
-            
         case WeatherStatus.snow.rawValue : cityDetailsImageView.loadGif(asset: "snow")
         case WeatherStatus.sleet.rawValue : cityDetailsImageView.loadGif(asset: "sleet")
         case WeatherStatus.hail.rawValue : cityDetailsImageView.loadGif(asset: "hail")
@@ -121,21 +118,7 @@ extension CityDetailsViewController :  CityDetailsDisplayLogic{
         case WeatherStatus.lightCloud.rawValue : cityDetailsImageView.loadGif(asset: "lightCloud")
         case WeatherStatus.clear.rawValue : cityDetailsImageView.loadGif(asset: "clear")
         default: break
-
         }
-    }
-    
-    func weekDay(dateString: String){
-        
-        let dateFormatter = DateFormatter(format: "yyyy-MM-dd")
-        let date = Date()
-        print("aranan  \(dateString.toDateString(dateFormatter: dateFormatter, outputFormat: "EEEE"))")
-        print("original String with date:               \(dateString)")
-        print("date String() to Date():                 \(dateString.toDate(dateFormatter: dateFormatter))")
-        print("date String() to formated date String(): \(dateString.toDateString(dateFormatter: dateFormatter, outputFormat: "dd MMMM"))")
-        let dateFormatter2 = DateFormatter(format: "dd MMM HH:mm")
-        print("format Date():                           \(date.toString(dateFormatter: dateFormatter2)!)")
-       
     }
 }
 
@@ -143,14 +126,13 @@ extension CityDetailsViewController: UICollectionViewDataSource {
    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return weatherModel?.weatherDetails.count ?? 0
-       
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailsCell", for: indexPath) as! CityDetailsCollectionViewCell
         let model = (self.weatherModel?.weatherDetails[indexPath.item])!
         cell.configure(viewModel: model)
-        //did select item çalışmadığı için tap gesture ekledim(extension kullandım)
+        //did select item methodu çalışmadığı için tap gesture ekledim
         cell.addTapGesture { [self] in
             selectDay(index: indexPath.item )
         }
