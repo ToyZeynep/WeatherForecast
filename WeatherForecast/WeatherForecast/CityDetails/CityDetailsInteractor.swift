@@ -25,6 +25,7 @@ class CityDetailsInteractor: CityDetailsBusinessLogic, CityDetailsDataStore {
     
     init(worker: CityDetailsWorkingLogic) {
         self.worker = worker
+       
     }
     
     func fetchCityDetails(){

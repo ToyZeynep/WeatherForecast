@@ -21,8 +21,10 @@ final class CityListViewController: UIViewController {
     var viewModel: CityList.Fetch.ViewModel?
     
     @IBOutlet weak var cityListTableView: UITableView!
-    @IBOutlet weak var cityListSortButton: UIButton!
     @IBOutlet weak var cityListSearcBar: UISearchBar!
+    
+    var timer = Timer()
+    
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -54,17 +56,21 @@ final class CityListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "CityList"
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(callme), userInfo: nil, repeats: false)
+        CustomLoader.instance.showLoaderView()
        interactor?.getLocation()
         cityListTableView.register(UINib(nibName: "CityListTableViewCell", bundle: nil), forCellReuseIdentifier: "CityList")
     }
-    
-    @IBAction func cityListSortButtonTapped(_ sender: Any) {
+    @objc func callme() {
+      //  timer.invalidate()
+        CustomLoader.instance.hideLoaderView()
     }
 }
 
@@ -101,11 +107,7 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
-    
-    func setImage(index: Int , imageView: UIImageView){
-     
-        }
-    }
+}
 
 
 extension CityListViewController : UISearchBarDelegate {
@@ -130,6 +132,5 @@ extension CityListViewController : UISearchBarDelegate {
         var params = [String: Any]()
         params["query"] = searchText
         interactor?.fetchCityList(params: params)
-        
     }
 }

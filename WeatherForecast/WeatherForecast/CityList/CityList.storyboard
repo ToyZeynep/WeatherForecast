@@ -66,8 +66,8 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" systemColor="systemTealColor"/>
-                        <color key="barTintColor" systemColor="systemTealColor"/>
+                        <color key="tintColor" red="0.12549019610000001" green="0.73725490199999999" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.12549019610000001" green="0.73725490199999999" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -79,12 +79,10 @@
             <point key="canvasLocation" x="131.8840579710145" y="93.75"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.12549019610000001" green="0.73725490199999999" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

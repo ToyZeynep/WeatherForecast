@@ -51,7 +51,7 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <LocationScenarioReference
-         identifier = "Hong Kong, China"
+         identifier = "Rio de Janeiro, Brazil"
          referenceType = "1">
       </LocationScenarioReference>
    </LaunchAction>

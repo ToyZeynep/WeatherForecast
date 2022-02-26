@@ -50,3 +50,19 @@ extension UIView {
 class MyTapGestureRecognizer: UITapGestureRecognizer {
     var action : (()->Void)? = nil
 }
+
+
+extension Double {
+    func toString() -> String {
+        return String(format: "%.f",self)
+    }
+}
+
+extension Int
+{
+    func toString() -> String
+    {
+        var myString = String(self)
+        return myString
+    }
+}

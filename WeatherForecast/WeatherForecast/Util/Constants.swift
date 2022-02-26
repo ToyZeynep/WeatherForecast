@@ -20,3 +20,16 @@ enum URLString: String {
     case image9 = "https://img.freepik.com/free-photo/view-manhattan-sunset-new-york-city_268835-463.jpg?size=626&ext=jpg"
 }
 
+enum WeatherStatus: String{
+    case snow = "Snow"
+    case sleet = "Sleet"
+    case hail = "Hail"
+    case heavyRain = "Heavy Rain"
+    case lightRain = "Light Rain"
+    case thunderstorm = "Thunderstorm"
+    case showers = "Showers"
+    case heavyCloud = "Heavy Cloud"
+    case lightCloud = "Light Cloud"
+    case clear = "Clear"
+}
+
