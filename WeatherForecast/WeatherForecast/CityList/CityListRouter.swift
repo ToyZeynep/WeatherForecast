@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol CityListRoutingLogic: AnyObject {
-    func routeToCityDetails(index: Int) 
+    func routeToCityDetails(index: Int)
 }
 
 protocol CityListDataPassing: AnyObject {
@@ -19,14 +19,14 @@ protocol CityListDataPassing: AnyObject {
 class CityListRouter: CityListRoutingLogic, CityListDataPassing {
     weak var viewController: CityListViewController?
     var dataStore: CityListDataStore?
- 
+    
     func routeToCityDetails(index: Int) {
-    let storyBoard = UIStoryboard(name: "CityDetails", bundle: nil)
-    let destVC: CityDetailsViewController = storyBoard.instantiateViewController(identifier: "CityDetails")
-    // data passing sample
-    var currentCity = dataStore?.cityList?[index]
-    destVC.router?.dataStore?.woeid = currentCity!.woeid
-    destVC.modalPresentationStyle = .fullScreen
-    viewController?.navigationController?.pushViewController(destVC, animated: true)
+        let storyBoard = UIStoryboard(name: "CityDetails", bundle: nil)
+        let destVC: CityDetailsViewController = storyBoard.instantiateViewController(identifier: "CityDetails")
+        // data passing sample
+       
+        destVC.router?.dataStore?.city =  dataStore?.cityList?[index]
+        destVC.modalPresentationStyle = .fullScreen
+        viewController?.navigationController?.pushViewController(destVC, animated: true)
     }
 }
