@@ -19,7 +19,7 @@ class ApiClient {
                 completion(.success(responseData))
             case .failure(let error):
                 completion(.failure(error))
-                print(error.localizedDescription)
+                Alert.alert(title: "Error!", message: error.localizedDescription)
             }
         }
     }

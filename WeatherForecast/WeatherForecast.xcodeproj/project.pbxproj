@@ -43,6 +43,7 @@
 		22062FCD27CA32D400286968 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22062FCC27CA32D400286968 /* DateExtension.swift */; };
 		22062FD027CA61B000286968 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22062FCF27CA61B000286968 /* SplashView.swift */; };
 		22062FD227CA61DB00286968 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22062FD127CA61DB00286968 /* Splash.storyboard */; };
+		22062FD427CA921B00286968 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 22062FD327CA921B00286968 /* Settings.bundle */; };
 		6E19A2D463417A90DE037E67 /* Pods_WeatherForecast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0673FC9D82556732CB2B0BD8 /* Pods_WeatherForecast.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		22062FCC27CA32D400286968 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		22062FCF27CA61B000286968 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		22062FD127CA61DB00286968 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		22062FD327CA921B00286968 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		BDA8E562C49E3A347D431751 /* Pods-WeatherForecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.debug.xcconfig"; path = "Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.debug.xcconfig"; sourceTree = "<group>"; };
 		C4B2818039283DE8982A2FCC /* Pods-WeatherForecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.release.xcconfig"; path = "Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				22008D2C27C76F81004727B2 /* WeatherForecast */,
+				22062FD327CA921B00286968 /* Settings.bundle */,
 				22008D2B27C76F81004727B2 /* Products */,
 				FC9E4801CF534BB584CC466D /* Pods */,
 				6F481C50087CFE8EB5486AD6 /* Frameworks */,
@@ -321,6 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22062FD427CA921B00286968 /* Settings.bundle in Resources */,
 				22008D6527C7858F004727B2 /* CityListTableViewCell.xib in Resources */,
 				22008D7E27C7B859004727B2 /* CityDetailsCollectionViewCell.xib in Resources */,
 				22008D3727C76F83004727B2 /* Assets.xcassets in Resources */,
