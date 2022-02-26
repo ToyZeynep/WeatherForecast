@@ -7,26 +7,30 @@
 
 import UIKit
 import Kingfisher
+import SwiftGifOrigin
 
 protocol CityDetailsDisplayLogic: AnyObject
 {
-  
     func presentCityWeather(viewModel: Weather.Fetch.ViewModel)
-
+    func presentCityTitle(viewModel: CityDetails.Fetch.ViewModel)
 }
 
 class CityDetailsViewController: UIViewController {
     var interactor: CityDetailsBusinessLogic?
     var router: (CityDetailsRoutingLogic & CityDetailsDataPassing)?
+    var viewModel: CityDetails.Fetch.ViewModel?
     var weatherModel: Weather.Fetch.ViewModel?
+    
     var gridFlowLayout = GridFlowLayout()
-
+    var timer = Timer()
+    
     @IBOutlet weak var cityDetailsImageView: UIImageView!
     @IBOutlet weak var cityDetailsCollectionView: UICollectionView!
     @IBOutlet weak var cityDetailsTitleLabel: UILabel!
     @IBOutlet weak var cityDetailsWindSpeedLabel: UILabel!
     @IBOutlet weak var cityDetailsHumidityLabel: UILabel!
-    @IBOutlet weak var cityDetailsStatusImageView: UIImageView!
+  
+    @IBOutlet weak var cityDetailsWeekDayLabel: UILabel!
     @IBOutlet weak var cityDetailsTempLabel: UILabel!
     
     // MARK: Object lifecycle
@@ -57,35 +61,84 @@ class CityDetailsViewController: UIViewController {
 
     // MARK: - View lifecycle
  
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+       
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(callme), userInfo: nil, repeats: false)
+        CustomLoader.instance.showLoaderView()
         interactor?.fetchCityDetails()
         cityDetailsCollectionView.collectionViewLayout = gridFlowLayout
         let nib = UINib(nibName: "CityDetailsCollectionViewCell", bundle: nil)
         cityDetailsCollectionView.register(nib, forCellWithReuseIdentifier: "detailsCell")
     }
+    
+    @objc func callme() {
+        CustomLoader.instance.hideLoaderView()
+    }
 }
 
 extension CityDetailsViewController :  CityDetailsDisplayLogic{
+    func presentCityTitle(viewModel: CityDetails.Fetch.ViewModel) {
+        self.viewModel = viewModel
+        cityDetailsTitleLabel.text = viewModel.title
+    }
+    
     func presentCityWeather(viewModel: Weather.Fetch.ViewModel) {
         self.weatherModel = viewModel
         cityDetailsCollectionView.reloadData()
+        selectDay(index: 0)
+    }
+    
+    func selectDay(index: Int ){
+        var model =  self.weatherModel?.weatherDetails[index]
+        self.cityDetailsHumidityLabel.text = "%" + (model?.humidity?.toString())!
+        self.cityDetailsWindSpeedLabel.text = (model?.wind_speed?.toString())! + ("m/s")
+        self.cityDetailsTempLabel.text = ((model?.the_temp!.toString())!) + "°C"
+        setGif(status: (model?.weather_state_name)!)
+        let dateFormatter = DateFormatter(format: "yyyy-MM-dd")
+        cityDetailsWeekDayLabel.text = model?.applicable_date!.toDateString(dateFormatter: dateFormatter, outputFormat: "EEEE")
+    }
+    
+    func setGif(status: String ){
+        switch status {
+        case WeatherStatus.snow.rawValue : cityDetailsImageView.loadGif(asset: "snow")
+        case WeatherStatus.sleet.rawValue : cityDetailsImageView.loadGif(asset: "sleet")
+        case WeatherStatus.hail.rawValue : cityDetailsImageView.loadGif(asset: "hail")
+        case WeatherStatus.thunderstorm.rawValue : cityDetailsImageView.loadGif(asset: "thunderstorm")
+        case WeatherStatus.showers.rawValue : cityDetailsImageView.loadGif(asset: "showers")
+        case WeatherStatus.heavyRain.rawValue : cityDetailsImageView.loadGif(asset: "heavyRain")
+        case WeatherStatus.lightRain.rawValue : cityDetailsImageView.loadGif(asset: "lightRain")
+        case WeatherStatus.heavyCloud.rawValue : cityDetailsImageView.loadGif(asset: "heavyCloud")
+        case WeatherStatus.lightCloud.rawValue : cityDetailsImageView.loadGif(asset: "lightCloud")
+        case WeatherStatus.clear.rawValue : cityDetailsImageView.loadGif(asset: "clear")
+        default: break
+        }
     }
 }
 
 extension CityDetailsViewController: UICollectionViewDataSource {
    
-  
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return weatherModel?.weatherDetails.count ?? 0
-       
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailsCell", for: indexPath) as! CityDetailsCollectionViewCell
-        let model = self.weatherModel?.weatherDetails[indexPath.item]
-        cell.testLabel.text = model?.weather_state_name
+        let model = (self.weatherModel?.weatherDetails[indexPath.item])!
+        cell.configure(viewModel: model)
+        //did select item methodu çalışmadığı için tap gesture ekledim
+        cell.addTapGesture { [self] in
+            selectDay(index: indexPath.item )
+        }
+    
         return cell
     }
+  
 }
 

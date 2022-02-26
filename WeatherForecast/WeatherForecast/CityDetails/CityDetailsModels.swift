@@ -7,6 +7,28 @@
 
 import UIKit
 
+enum CityDetails
+{
+    enum Fetch
+    {
+        struct Request
+        {
+            
+        }
+        
+        struct Response
+        {
+            let city: CityListResponse?
+            
+        }
+        
+        struct ViewModel
+        {
+            let title : String?
+        }
+    }
+}
+
 enum Weather
 {
     enum Fetch

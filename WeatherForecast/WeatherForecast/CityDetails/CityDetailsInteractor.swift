@@ -13,26 +13,23 @@ protocol CityDetailsBusinessLogic {
 }
 
 protocol CityDetailsDataStore: AnyObject {
-   
-    var woeid: Int? { get set }
+    var city: CityListResponse? { get set }
     var weatherDetails: [WeatherDetails]?  { get set }
 }
 
 class CityDetailsInteractor: CityDetailsBusinessLogic, CityDetailsDataStore {
-    
-    var woeid: Int?
+    var city: CityListResponse?
     var weatherDetails: [WeatherDetails]?
     var presenter: CityDetailsPresentationLogic?
     var worker: CityDetailsWorkingLogic
     
     init(worker: CityDetailsWorkingLogic) {
         self.worker = worker
+       
     }
     
-    
-    
     func fetchCityDetails(){
-        let param: Int = woeid!
+        let param: Int = (city?.woeid)!
         let params: String = String(param)
         self.worker.getCityDetails(params: params){[weak self] result in
             switch result {
@@ -41,9 +38,13 @@ class CityDetailsInteractor: CityDetailsBusinessLogic, CityDetailsDataStore {
                 guard let weatherDetails = self?.weatherDetails else {
                     return
                 }
+                guard let city = self?.city else{
+                    return
+                }
                 self?.presenter?.presentCityWeather(response: Weather.Fetch.Response(weatherDetails: weatherDetails))
-               case .failure(let error): break
-                //error
+                self?.presenter?.presentCityTitle(response: CityDetails.Fetch.Response(city: city))
+               case .failure(let error):
+                self!.presenter?.presentAlert(title: "Error!", message: error.localizedDescription)
             }
         }
     }
