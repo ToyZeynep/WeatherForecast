@@ -41,6 +41,8 @@
 		22062FC327CA0DC200286968 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22062FC227CA0DC200286968 /* ActivityIndicator.swift */; };
 		22062FCB27CA1A6600286968 /* load.gif in Resources */ = {isa = PBXBuildFile; fileRef = 22062FCA27CA1A6600286968 /* load.gif */; };
 		22062FCD27CA32D400286968 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22062FCC27CA32D400286968 /* DateExtension.swift */; };
+		22062FD027CA61B000286968 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22062FCF27CA61B000286968 /* SplashView.swift */; };
+		22062FD227CA61DB00286968 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22062FD127CA61DB00286968 /* Splash.storyboard */; };
 		6E19A2D463417A90DE037E67 /* Pods_WeatherForecast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0673FC9D82556732CB2B0BD8 /* Pods_WeatherForecast.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,8 @@
 		22062FC227CA0DC200286968 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		22062FCA27CA1A6600286968 /* load.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = load.gif; sourceTree = "<group>"; };
 		22062FCC27CA32D400286968 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		22062FCF27CA61B000286968 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		22062FD127CA61DB00286968 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		BDA8E562C49E3A347D431751 /* Pods-WeatherForecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.debug.xcconfig"; path = "Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.debug.xcconfig"; sourceTree = "<group>"; };
 		C4B2818039283DE8982A2FCC /* Pods-WeatherForecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.release.xcconfig"; path = "Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +123,7 @@
 		22008D2C27C76F81004727B2 /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
+				22062FCE27CA617800286968 /* Splash */,
 				22008D5327C77CBE004727B2 /* CityList */,
 				22008D6727C7A373004727B2 /* CityDetails */,
 				22008D4A27C776D2004727B2 /* Network */,
@@ -129,7 +134,6 @@
 				22008D3627C76F83004727B2 /* Assets.xcassets */,
 				22008D3B27C76F83004727B2 /* Info.plist */,
 				22062FCA27CA1A6600286968 /* load.gif */,
-				22062FC227CA0DC200286968 /* ActivityIndicator.swift */,
 			);
 			path = WeatherForecast;
 			sourceTree = "<group>";
@@ -221,6 +225,7 @@
 		22008D7F27C7BB93004727B2 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				22062FC227CA0DC200286968 /* ActivityIndicator.swift */,
 				22008D8027C7BBAD004727B2 /* GridFlowLayout.swift */,
 				22008D8227C7C50A004727B2 /* Alert.swift */,
 				22008D8427C7C621004727B2 /* Extensions.swift */,
@@ -228,6 +233,15 @@
 				22062FCC27CA32D400286968 /* DateExtension.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		22062FCE27CA617800286968 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				22062FCF27CA61B000286968 /* SplashView.swift */,
+				22062FD127CA61DB00286968 /* Splash.storyboard */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		6F481C50087CFE8EB5486AD6 /* Frameworks */ = {
@@ -313,6 +327,7 @@
 				22008D6127C782E5004727B2 /* CityList.storyboard in Resources */,
 				22008D7727C7B726004727B2 /* CityDetails.storyboard in Resources */,
 				22062FCB27CA1A6600286968 /* load.gif in Resources */,
+				22062FD227CA61DB00286968 /* Splash.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +406,7 @@
 				22008D5927C77EDD004727B2 /* CityListInteractor.swift in Sources */,
 				22008D6427C7858F004727B2 /* CityListTableViewCell.swift in Sources */,
 				22062FC327CA0DC200286968 /* ActivityIndicator.swift in Sources */,
+				22062FD027CA61B000286968 /* SplashView.swift in Sources */,
 				22008D5B27C78074004727B2 /* CityListPresenter.swift in Sources */,
 				22008D6D27C7B058004727B2 /* CityDetailsModels.swift in Sources */,
 			);
@@ -531,7 +547,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For weather forecasts, you need to share your location information.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = CityList;
+				INFOPLIST_KEY_UIMainStoryboardFile = Splash;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -563,7 +579,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For weather forecasts, you need to share your location information.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = CityList;
+				INFOPLIST_KEY_UIMainStoryboardFile = Splash;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
