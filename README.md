@@ -4,7 +4,6 @@ Weather Forecast
 
 <img src="https://user-images.githubusercontent.com/75203610/155876141-975cdea4-fd22-4e76-96c7-14a2d0421e1d.gif" align="right" width="250" height="200">
 
-
 Forecast Weather is a weather app that lists cities near your location and you can get daily forecasts using  [MetaWeather](https://www.metaweather.com/) api.
 
 # Table of contents
@@ -32,17 +31,15 @@ Forecast Weather is a weather app that lists cities near your location and you c
 - [SwiftGifOrigin](https://cocoapods.org/pods/SwiftGifOrigin)
 
 ## Usage <a name="Usage"></a>
-On the home page of the weather forecast application, the province you are in and the provinces nearby are listed. You can search by city name with the help of the search bar on the main page.
-Clicking on the desired cell in the list goes to the city detail page. daily forecast details and 1-week forecast are listed. Clicking on any day will display the details of that day.
-
+The city you are in and nearby cities are listed on the home page of the weather forecast application. You can search by city name with the help of the search bar on the main page. Clicking on the desired cell in the list will take you to the city detail page. Daily forecast details and 1-week forecast are listed. Clicking on any day displays the details of that day.
 ## Requiremonts <a name="Requiremonts"></a>
 Versions I use:
 - `ruby 2.6.3p62`
 - `cocoapods-1.11.2` 
 
 ## Installation <a name="Installation"></a>
-`pod install` is written to the file path of the application in the terminal and the application is run on xcode
-
+- paste `git clone https://github.com/SaniyeToy/WeatherForecast.git` into terminal
+- `pod install` is written to the file path of the application in the terminal and the application is run on xcode
 
 ## Communication <a name="Communication"></a>
 - [GitHub](https://github.com/SaniyeToy)
