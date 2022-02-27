@@ -10,7 +10,6 @@ import Kingfisher
 
 class CityDetailsCollectionViewCell: UICollectionViewCell {
     
-    
     @IBOutlet weak var cellHumidityLabel: UILabel!
     @IBOutlet weak var cellWindLabel: UILabel!
     @IBOutlet weak var cellDateLabel: UILabel!
@@ -18,15 +17,12 @@ class CityDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cellTempLabel: UILabel!
     @IBOutlet weak var weekDayLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         let margins = UIEdgeInsets(top: 8, left: 4, bottom: 4, right: 8)
         contentView.frame = contentView.frame.inset(by: margins)
         contentView.layer.cornerRadius = 8
@@ -37,7 +33,6 @@ class CityDetailsCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(viewModel: Weather.Fetch.ViewModel.WeatherDetails){
-        
         cellTempLabel.text = (viewModel.the_temp?.toString())! +  "°"
         cellDateLabel.text = viewModel.applicable_date
         cellWindLabel.text = "Wind: " + (viewModel.wind_speed?.toString())! + " m/s"
@@ -49,9 +44,6 @@ class CityDetailsCollectionViewCell: UICollectionViewCell {
     }
     
     func setImage(status: String){
-        
         cellImageView.image = UIImage(named: status)
     }
-    
-    
 }

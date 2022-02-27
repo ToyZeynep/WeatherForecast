@@ -7,33 +7,33 @@
 
 import UIKit
 
-enum CityDetails
-{
-    enum Fetch
-    {
-        struct Response
-        {
+enum CityDetails{
+    
+    enum Fetch{
+        
+        struct Response{
+            
             let city: CityListResponse?
         }
         
-        struct ViewModel
-        {
+        struct ViewModel{
+            
             let title : String?
         }
     }
 }
 
-enum Weather
-{
-    enum Fetch
-    {
-        struct Response
-        {
+enum Weather{
+    
+    enum Fetch{
+        
+        struct Response{
+            
             let weatherDetails: [WeatherDetails]
         }
         
-        struct ViewModel
-        {
+        struct ViewModel{
+            
             var weatherDetails: [Weather.Fetch.ViewModel.WeatherDetails]
             
             struct WeatherDetails {

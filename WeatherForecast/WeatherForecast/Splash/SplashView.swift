@@ -14,7 +14,6 @@ class SplashViewController: UIViewController {
     @IBOutlet weak var splashImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         splashImageView.loadGif(asset: "seasons")
         splashImageView.translatesAutoresizingMaskIntoConstraints = false
         splashImageView.contentMode = .scaleAspectFit

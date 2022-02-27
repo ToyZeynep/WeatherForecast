@@ -20,13 +20,11 @@ class CityDetailsPresenter: CityDetailsPresentationLogic {
     weak var viewController: CityDetailsDisplayLogic?
     
     func presentCityTitle(response: CityDetails.Fetch.Response){
-        
         viewController?.presentCityTitle(viewModel: CityDetails.Fetch.ViewModel(title: response.city?.title))
     }
+    
     func presentCityWeather(response: Weather.Fetch.Response){
-        
         var weatherDetails: [Weather.Fetch.ViewModel.WeatherDetails] = []
-        
         response.weatherDetails.forEach {
             weatherDetails.append(Weather.Fetch.ViewModel.WeatherDetails(weather_state_name:  $0.weather_state_name,
                                                                          applicable_date:  $0.applicable_date,
@@ -42,12 +40,10 @@ class CityDetailsPresenter: CityDetailsPresentationLogic {
     }
     
     func presentAlert(title: String , message: String){
-        
         Alert.alert(title: title , message: message)
     }
     
     func presentAlertAction(title: String , message: String , action: UIAlertAction) {
-        
         Alert.alertAction(title: title, message: message, action: action)
     }
 }

@@ -28,7 +28,6 @@ class CityDetailsInteractor: CityDetailsBusinessLogic, CityDetailsDataStore {
     }
     
     func fetchCityDetails(){
-        
         let param: Int = (city?.woeid)!
         let params: String = String(param)
         self.worker.getCityDetails(params: params){[weak self] result in

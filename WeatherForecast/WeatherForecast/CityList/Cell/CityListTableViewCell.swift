@@ -15,7 +15,6 @@ class CityListTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         let margins = UIEdgeInsets(top: 8, left: 4, bottom: 4, right: 8)
@@ -29,7 +28,5 @@ class CityListTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
-    
 }

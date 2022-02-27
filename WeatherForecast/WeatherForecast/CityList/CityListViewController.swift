@@ -39,7 +39,6 @@ final class CityListViewController: UIViewController {
     // MARK: - Setup Clean Code Design Pattern
     
     private func setup() {
-        
         let viewController = self
         let interactor = CityListInteractor(worker: CityListWorker())
         let presenter = CityListPresenter()
@@ -54,7 +53,6 @@ final class CityListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.title = "CityList"
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -62,7 +60,6 @@ final class CityListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(callme), userInfo: nil, repeats: false)
         CustomLoader.instance.showLoaderView()
         interactor?.getLocation()
@@ -98,7 +95,6 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         let randomNumber = Int.random(in: 0...3)
         let imagesArr = [URLString.image0.rawValue ,URLString.image1.rawValue ,URLString.image2.rawValue,URLString.image3.rawValue,URLString.image4.rawValue,URLString.image5.rawValue,URLString.image6.rawValue,URLString.image7.rawValue,URLString.image8.rawValue , URLString.image9.rawValue]
         cell.cityCellImageView.kf.setImage(with: URL(string: imagesArr[indexPath.row] ))
-        
         return cell
     }
     
@@ -115,13 +111,11 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
 extension CityListViewController : UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(CityListViewController.reload), object: nil)
         self.perform(#selector(CityListViewController.reload), with: nil, afterDelay: 0.7)
     }
     
     @objc func reload() {
-        
         guard let searchText = cityListSearcBar.text else { return }
         if searchText == "" {
             self.viewModel?.cityList.removeAll()
@@ -133,7 +127,6 @@ extension CityListViewController : UISearchBarDelegate {
     }
     
     func search(searchText: String){
-        
         var params = [String: Any]()
         params["query"] = searchText
         interactor?.fetchCityList(params: params)

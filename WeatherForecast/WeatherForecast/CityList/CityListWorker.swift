@@ -14,7 +14,6 @@ protocol CityListWorkingLogic: AnyObject {
 final class CityListWorker: CityListWorkingLogic {
     
     func getCityList(params: [String: Any], completion: @escaping ((Result<[CityListResponse], Error>) -> Void)) {
-        
         ApiClient.request(ApiEndPoint.cityList(params: params)) {(_ result: Result<[CityListResponse], Error>) in
             completion(result)
         }
