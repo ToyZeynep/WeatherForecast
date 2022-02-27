@@ -4,7 +4,7 @@ Weather Forecast
 
 <img src="https://user-images.githubusercontent.com/75203610/155876141-975cdea4-fd22-4e76-96c7-14a2d0421e1d.gif" align="right" width="250" height="200">
 
-Forecast Weather is a weather app that lists cities near your location and you can get daily forecasts using  [MetaWeather](https://www.metaweather.com/) api.
+WeatherForecast is a weather app that lists cities near your location and you can get daily forecasts using  [MetaWeather](https://www.metaweather.com/) api.
 
 # Table of contents
 1. [Features](#Features)
