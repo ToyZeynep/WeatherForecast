@@ -24,6 +24,16 @@ final class CityListViewController: UIViewController {
     
     var timer = Timer()
     
+    var counter = 0{
+        didSet{
+            if counter == 17{
+                counter = 0
+            }else{
+                
+            }
+        }
+    }
+    
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -90,11 +100,12 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let model = self.viewModel?.cityList[indexPath.row]  else {
             return UITableViewCell()
         }
-        
         cell.cityNameLabel.text = model.title
-        let randomNumber = Int.random(in: 0...3)
-        let imagesArr = [URLString.image0.rawValue ,URLString.image1.rawValue ,URLString.image2.rawValue,URLString.image3.rawValue,URLString.image4.rawValue,URLString.image5.rawValue,URLString.image6.rawValue,URLString.image7.rawValue,URLString.image8.rawValue , URLString.image9.rawValue]
-        cell.cityCellImageView.kf.setImage(with: URL(string: imagesArr[indexPath.row] ))
+    
+        let imagesArr = [URLString.image0.rawValue , URLString.image16.rawValue ,URLString.image1.rawValue ,URLString.image2.rawValue,URLString.image3.rawValue, URLString.image12.rawValue, URLString.image4.rawValue,URLString.image5.rawValue,URLString.image6.rawValue,  URLString.image13.rawValue ,URLString.image7.rawValue,URLString.image8.rawValue , URLString.image9.rawValue, URLString.image10.rawValue , URLString.image11.rawValue, URLString.image14.rawValue , URLString.image15.rawValue ]
+        
+        cell.cityCellImageView.kf.setImage(with: URL(string: imagesArr[counter]))
+        counter = counter + 1
         return cell
     }
     

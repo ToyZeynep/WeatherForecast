@@ -17,12 +17,12 @@ class CityListTableViewCell: UITableViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        let margins = UIEdgeInsets(top: 8, left: 4, bottom: 4, right: 8)
+        let margins = UIEdgeInsets(top: 10, left: 4, bottom: 10, right: 4)
         contentView.frame = contentView.frame.inset(by: margins)
         contentView.layer.cornerRadius = 8
         contentView.backgroundColor = UIColor.white
         contentView.layer.borderColor = UIColor.systemBlue.cgColor
-        contentView.layer.borderWidth = 0.5
+        contentView.layer.borderWidth = 0.7
         contentView.clipsToBounds = true
     }
     

@@ -93,6 +93,7 @@ extension CityListInteractor: CLLocationManagerDelegate{
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        
         checkLocationPermission()
     }
 }
