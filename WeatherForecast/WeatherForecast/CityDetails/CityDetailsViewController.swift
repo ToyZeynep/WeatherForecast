@@ -65,7 +65,7 @@ class CityDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(callme), userInfo: nil, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(callme), userInfo: nil, repeats: false)
         CustomLoader.instance.showLoaderView()
         interactor?.fetchCityDetails()
         cityDetailsCollectionView.collectionViewLayout = gridFlowLayout

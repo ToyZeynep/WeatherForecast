@@ -32,10 +32,11 @@ final class CityListInteractor: NSObject ,CityListBusinessLogic, CityListDataSto
     func getLocation(){
         locationManager = CLLocationManager()
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
         if CLLocationManager.locationServicesEnabled(){
             locationManager.startUpdatingLocation()
+            locationManager.requestAlwaysAuthorization()
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
         }
         checkLocationPermission()
     }
@@ -88,9 +89,10 @@ extension CityListInteractor: CLLocationManagerDelegate{
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        let alertAction = UIAlertAction(title: "Try Again", style: .default) { [self] action in
-            self.checkLocationPermission()
-        }
-        self.presenter?.presentAlertAction(title: "Error!", message: "Location not found", action: alertAction)
+        print("Location Error: ", error)
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkLocationPermission()
     }
 }
