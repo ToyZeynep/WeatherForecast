@@ -9,8 +9,7 @@ import UIKit
 import Kingfisher
 import SwiftGifOrigin
 
-protocol CityDetailsDisplayLogic: AnyObject
-{
+protocol CityDetailsDisplayLogic: AnyObject{
     func presentCityWeather(viewModel: Weather.Fetch.ViewModel)
     func presentCityTitle(viewModel: CityDetails.Fetch.ViewModel)
 }
@@ -20,7 +19,6 @@ class CityDetailsViewController: UIViewController {
     var router: (CityDetailsRoutingLogic & CityDetailsDataPassing)?
     var viewModel: CityDetails.Fetch.ViewModel?
     var weatherModel: Weather.Fetch.ViewModel?
-    
     var gridFlowLayout = GridFlowLayout()
     var timer = Timer()
     
@@ -29,7 +27,6 @@ class CityDetailsViewController: UIViewController {
     @IBOutlet weak var cityDetailsTitleLabel: UILabel!
     @IBOutlet weak var cityDetailsWindSpeedLabel: UILabel!
     @IBOutlet weak var cityDetailsHumidityLabel: UILabel!
-  
     @IBOutlet weak var cityDetailsWeekDayLabel: UILabel!
     @IBOutlet weak var cityDetailsTempLabel: UILabel!
     
@@ -38,14 +35,14 @@ class CityDetailsViewController: UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-
+    
     // MARK: - Setup Clean Code Design Pattern
-
+    
     private func setup() {
         let viewController = self
         let interactor = CityDetailsInteractor(worker: CityDetailsWorker())
@@ -58,18 +55,16 @@ class CityDetailsViewController: UIViewController {
         router.viewController = viewController
         router.dataStore = interactor
     }
-
+    
     // MARK: - View lifecycle
- 
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.tintColor = UIColor.black
-       
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(callme), userInfo: nil, repeats: false)
         CustomLoader.instance.showLoaderView()
         interactor?.fetchCityDetails()
@@ -123,11 +118,11 @@ extension CityDetailsViewController :  CityDetailsDisplayLogic{
 }
 
 extension CityDetailsViewController: UICollectionViewDataSource {
-   
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return weatherModel?.weatherDetails.count ?? 0
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailsCell", for: indexPath) as! CityDetailsCollectionViewCell
         let model = (self.weatherModel?.weatherDetails[indexPath.item])!
@@ -136,9 +131,7 @@ extension CityDetailsViewController: UICollectionViewDataSource {
         cell.addTapGesture { [self] in
             selectDay(index: indexPath.item )
         }
-    
         return cell
     }
-  
 }
 

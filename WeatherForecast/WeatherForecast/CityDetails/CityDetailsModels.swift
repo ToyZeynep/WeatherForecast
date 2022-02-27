@@ -7,54 +7,46 @@
 
 import UIKit
 
-enum CityDetails
-{
-    enum Fetch
-    {
-        struct Request
-        {
-            
-        }
+enum CityDetails{
+    
+    enum Fetch{
         
-        struct Response
-        {
+        struct Response{
+            
             let city: CityListResponse?
-            
         }
         
-        struct ViewModel
-        {
+        struct ViewModel{
+            
             let title : String?
         }
     }
 }
 
-enum Weather
-{
-    enum Fetch
-    {
+enum Weather{
+    
+    enum Fetch{
         
-        struct Response
-        {
-            let weatherDetails: [WeatherDetails]
+        struct Response{
             
+            let weatherDetails: [WeatherDetails]
         }
         
-        struct ViewModel
-        {
+        struct ViewModel{
+            
             var weatherDetails: [Weather.Fetch.ViewModel.WeatherDetails]
             
             struct WeatherDetails {
                 
-            let weather_state_name : String?
-            let applicable_date : String?
-            let min_temp : Double?
-            let max_temp : Double?
-            let the_temp : Double?
-            let wind_speed : Double?
-            let wind_direction : Double?
-            let air_pressure : Double?
-            let humidity : Int?
+                let weather_state_name : String?
+                let applicable_date : String?
+                let min_temp : Double?
+                let max_temp : Double?
+                let the_temp : Double?
+                let wind_speed : Double?
+                let wind_direction : Double?
+                let air_pressure : Double?
+                let humidity : Int?
                 
             }
         }

@@ -9,8 +9,7 @@ import UIKit
 import Kingfisher
 
 class CityDetailsCollectionViewCell: UICollectionViewCell {
-
-
+    
     @IBOutlet weak var cellHumidityLabel: UILabel!
     @IBOutlet weak var cellWindLabel: UILabel!
     @IBOutlet weak var cellDateLabel: UILabel!
@@ -18,15 +17,12 @@ class CityDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cellTempLabel: UILabel!
     @IBOutlet weak var weekDayLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-      
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        //set the values for top,left,bottom,right margins
         let margins = UIEdgeInsets(top: 8, left: 4, bottom: 4, right: 8)
         contentView.frame = contentView.frame.inset(by: margins)
         contentView.layer.cornerRadius = 8
@@ -50,6 +46,4 @@ class CityDetailsCollectionViewCell: UICollectionViewCell {
     func setImage(status: String){
         cellImageView.image = UIImage(named: status)
     }
-    
-  
 }

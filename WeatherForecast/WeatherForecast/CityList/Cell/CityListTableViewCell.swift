@@ -13,13 +13,10 @@ class CityListTableViewCell: UITableViewCell {
     @IBOutlet weak var cityCellImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    
     override func layoutSubviews() {
         super.layoutSubviews()
-        //set the values for top,left,bottom,right margins
         let margins = UIEdgeInsets(top: 8, left: 4, bottom: 4, right: 8)
         contentView.frame = contentView.frame.inset(by: margins)
         contentView.layer.cornerRadius = 8
@@ -31,8 +28,5 @@ class CityListTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-    
 }

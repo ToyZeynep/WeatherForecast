@@ -7,11 +7,10 @@
 
 import UIKit
 
-enum CityList
-{
+enum CityList{
     
-    enum Fetch
-    {
+    enum Fetch{
+        
         struct Response{
             
             var cityList : [CityListResponse]
@@ -28,7 +27,6 @@ enum CityList
                 let location_type : String?
                 let woeid : Int?
                 let latt_long : String?
-                
             }
         }
     }

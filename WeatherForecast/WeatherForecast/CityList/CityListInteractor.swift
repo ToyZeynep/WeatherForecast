@@ -12,7 +12,6 @@ import CoreLocation
 protocol CityListBusinessLogic: AnyObject {
     func fetchCityList(params: [String: Any])
     func getLocation()
-    
 }
 
 protocol CityListDataStore: AnyObject {
@@ -63,8 +62,6 @@ final class CityListInteractor: NSObject ,CityListBusinessLogic, CityListDataSto
     }
     
     func fetchCityList(params: [String: Any] ){
-        //getWeather
-        
         self.worker?.getCityList(params: params) {[weak self] result in
             switch result {
             case .success(let response):
@@ -79,6 +76,7 @@ final class CityListInteractor: NSObject ,CityListBusinessLogic, CityListDataSto
 }
 
 extension CityListInteractor: CLLocationManagerDelegate{
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation :CLLocation = locations[0] as CLLocation
         print("user latitude = \(userLocation.coordinate.latitude)")
@@ -90,7 +88,6 @@ extension CityListInteractor: CLLocationManagerDelegate{
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        
         let alertAction = UIAlertAction(title: "Try Again", style: .default) { [self] action in
             self.checkLocationPermission()
         }
