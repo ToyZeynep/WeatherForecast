@@ -23,6 +23,7 @@ class CityListRouter: CityListRoutingLogic, CityListDataPassing {
     func routeToCityDetails(index: Int) {
         let storyBoard = UIStoryboard(name: "CityDetails", bundle: nil)
         let destVC: CityDetailsViewController = storyBoard.instantiateViewController(identifier: "CityDetails")
+        ///detaylar sayfasına iki ayrı değer göndermemiz gerekiyor (woeid ve title) bunun için city modelimizi gönderiyoruz.
         destVC.router?.dataStore?.city =  dataStore?.cityList?[index]
         destVC.modalPresentationStyle = .fullScreen
         viewController?.navigationController?.pushViewController(destVC, animated: true)

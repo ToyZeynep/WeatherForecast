@@ -38,7 +38,6 @@ class CustomLoader: UIView {
         self.transparentView.addSubview(self.gifImage)
         self.transparentView.bringSubviewToFront(self.gifImage)
         UIApplication.shared.keyWindow?.addSubview(transparentView)
-        
     }
     
     func hideLoaderView() {

@@ -17,7 +17,9 @@ protocol CityDetailsDisplayLogic: AnyObject{
 class CityDetailsViewController: UIViewController {
     var interactor: CityDetailsBusinessLogic?
     var router: (CityDetailsRoutingLogic & CityDetailsDataPassing)?
+    ///Title için kullandığımız model
     var viewModel: CityDetails.Fetch.ViewModel?
+    ///Hava durmu detayları listesi için kullandığımız model
     var weatherModel: Weather.Fetch.ViewModel?
     var gridFlowLayout = GridFlowLayout()
     var timer = Timer()
@@ -65,8 +67,9 @@ class CityDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(callme), userInfo: nil, repeats: false)
         CustomLoader.instance.showLoaderView()
+        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(callme), userInfo: nil, repeats: false)
+        ///1. Adım
         interactor?.fetchCityDetails()
         cityDetailsCollectionView.collectionViewLayout = gridFlowLayout
         let nib = UINib(nibName: "CityDetailsCollectionViewCell", bundle: nil)
@@ -78,7 +81,11 @@ class CityDetailsViewController: UIViewController {
     }
 }
 
+// MARK: - Display view model from City Details Presenter
+
 extension CityDetailsViewController :  CityDetailsDisplayLogic{
+    ///4. Adım gelen verileri ekrana basıyoruz
+    
     func presentCityTitle(viewModel: CityDetails.Fetch.ViewModel) {
         self.viewModel = viewModel
         cityDetailsTitleLabel.text = viewModel.title
@@ -117,6 +124,8 @@ extension CityDetailsViewController :  CityDetailsDisplayLogic{
     }
 }
 
+// MARK: - CollectionView DataSource
+
 extension CityDetailsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -127,7 +136,7 @@ extension CityDetailsViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailsCell", for: indexPath) as! CityDetailsCollectionViewCell
         let model = (self.weatherModel?.weatherDetails[indexPath.item])!
         cell.configure(viewModel: model)
-        //did select item methodu çalışmadığı için tap gesture ekledim
+        //did select item methodu çalışmadığı için cell'e tap gesture ekledim.seçilen gün ekrana basılacak
         cell.addTapGesture { [self] in
             selectDay(index: indexPath.item )
         }

@@ -30,6 +30,7 @@ class CityDetailsCollectionViewCell: UICollectionViewCell {
         contentView.backgroundColor = .clear
         contentView.layer.borderWidth = 0.5
         contentView.clipsToBounds = true
+   
     }
     
     func configure(viewModel: Weather.Fetch.ViewModel.WeatherDetails){

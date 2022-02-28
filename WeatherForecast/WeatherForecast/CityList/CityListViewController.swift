@@ -23,6 +23,15 @@ final class CityListViewController: UIViewController {
     @IBOutlet weak var cityListSearcBar: UISearchBar!
     
     var timer = Timer()
+    var counter = 0{
+        didSet{
+            if counter == 17{
+                counter = 0
+            }else{
+                
+            }
+        }
+    }
     
     // MARK: Object lifecycle
     
@@ -51,6 +60,8 @@ final class CityListViewController: UIViewController {
         router.dataStore = interactor
     }
     
+    // MARK: - View lifecycle
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "CityList"
@@ -60,8 +71,9 @@ final class CityListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(callme), userInfo: nil, repeats: false)
         CustomLoader.instance.showLoaderView()
+        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(callme), userInfo: nil, repeats: false)
+        ///1. Adım
         interactor?.getLocation()
         cityListTableView.register(UINib(nibName: "CityListTableViewCell", bundle: nil), forCellReuseIdentifier: "CityList")
     }
@@ -71,13 +83,17 @@ final class CityListViewController: UIViewController {
     }
 }
 
+// MARK: - Display view model from City List Presenter
+
 extension CityListViewController : CityListDisplayLogic{
-    
+    ///4. Adım gelen veriyi ekrana basıyoruz
     func displayCityList(viewModel: CityList.Fetch.ViewModel) {
         self.viewModel = viewModel
         cityListTableView.reloadData()
     }
 }
+
+// MARK: - TableView Delegate and DataSource
 
 extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -90,11 +106,12 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let model = self.viewModel?.cityList[indexPath.row]  else {
             return UITableViewCell()
         }
-        
         cell.cityNameLabel.text = model.title
-        let randomNumber = Int.random(in: 0...3)
-        let imagesArr = [URLString.image0.rawValue ,URLString.image1.rawValue ,URLString.image2.rawValue,URLString.image3.rawValue,URLString.image4.rawValue,URLString.image5.rawValue,URLString.image6.rawValue,URLString.image7.rawValue,URLString.image8.rawValue , URLString.image9.rawValue]
-        cell.cityCellImageView.kf.setImage(with: URL(string: imagesArr[indexPath.row] ))
+    
+        let imagesArr = [URLString.image0.rawValue , URLString.image16.rawValue ,URLString.image1.rawValue ,URLString.image2.rawValue,URLString.image3.rawValue, URLString.image12.rawValue, URLString.image4.rawValue,URLString.image5.rawValue,URLString.image6.rawValue,  URLString.image13.rawValue ,URLString.image7.rawValue,URLString.image8.rawValue , URLString.image9.rawValue, URLString.image10.rawValue , URLString.image11.rawValue, URLString.image14.rawValue , URLString.image15.rawValue]
+        
+        cell.cityCellImageView.kf.setImage(with: URL(string: imagesArr[counter]))
+        counter = counter + 1
         return cell
     }
     
@@ -107,6 +124,7 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: - SearchBar Delegate
 
 extension CityListViewController : UISearchBarDelegate {
     
@@ -117,6 +135,7 @@ extension CityListViewController : UISearchBarDelegate {
     
     @objc func reload() {
         guard let searchText = cityListSearcBar.text else { return }
+        ///SearchBar'da anahtar kelime silindiğinde lokasyona göre şehir listesini getiriyoruz
         if searchText == "" {
             self.viewModel?.cityList.removeAll()
             interactor?.getLocation()
@@ -127,6 +146,7 @@ extension CityListViewController : UISearchBarDelegate {
     }
     
     func search(searchText: String){
+        ///SearchBar'da aranan şehir ismine göre parametre gönderip isteğimizi atıyoruz.
         var params = [String: Any]()
         params["query"] = searchText
         interactor?.fetchCityList(params: params)

@@ -32,10 +32,11 @@ final class CityListInteractor: NSObject ,CityListBusinessLogic, CityListDataSto
     func getLocation(){
         locationManager = CLLocationManager()
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
         if CLLocationManager.locationServicesEnabled(){
             locationManager.startUpdatingLocation()
+            locationManager.requestAlwaysAuthorization()
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
         }
         checkLocationPermission()
     }
@@ -62,11 +63,13 @@ final class CityListInteractor: NSObject ,CityListBusinessLogic, CityListDataSto
     }
     
     func fetchCityList(params: [String: Any] ){
+        ///2. Adım
         self.worker?.getCityList(params: params) {[weak self] result in
             switch result {
             case .success(let response):
                 self?.cityList = response
                 guard let cityList = self?.cityList else { return }
+                ///gelen response'u oluşturduğumuz listeye aktarıyoruz ve parametre olarak presenter a gönderiyoruz
                 self?.presenter?.presentCityList(response: CityList.Fetch.Response(cityList:cityList))
             case .failure(let error):
                 self?.presenter?.presentAlert(title: "Error", message: error.localizedDescription)
@@ -79,18 +82,20 @@ extension CityListInteractor: CLLocationManagerDelegate{
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation :CLLocation = locations[0] as CLLocation
-        print("user latitude = \(userLocation.coordinate.latitude)")
-        print("user longitude = \(userLocation.coordinate.longitude)")
-        coordinates = "\(userLocation.coordinate.latitude),\(userLocation.coordinate.longitude)"
+        let lat = userLocation.coordinate.latitude
+        let long = userLocation.coordinate.longitude
+        coordinates = "\(lat),\(long)"
         var params: [String: Any] = [String: Any]()
+        ///parametre oluşturulup isteğimizi atıyoruz
         params["lattlong"] = coordinates
         fetchCityList(params: params)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        let alertAction = UIAlertAction(title: "Try Again", style: .default) { [self] action in
-            self.checkLocationPermission()
-        }
-        self.presenter?.presentAlertAction(title: "Error!", message: "Location not found", action: alertAction)
+        print("Location Error: ", error)
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkLocationPermission()
     }
 }
