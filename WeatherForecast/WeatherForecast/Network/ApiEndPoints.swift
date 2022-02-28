@@ -14,23 +14,24 @@ enum ApiEndPoint: APIConfiguration {
     case cityDetails(params: String)
     
     var cityUrl : String {
-    return "api/location/"
+        return "api/location/"
     }
     
-        var method: HTTPMethod {
-            switch self {
-            case .cityList:
-                return .get
-            case .cityDetails:
-                return .get
-            }
+    var method: HTTPMethod {
+        switch self {
+        case .cityList:
+            return .get
+        case .cityDetails:
+            return .get
         }
+    }
     
     var path: String {
         switch self {
         case .cityList:
             return cityUrl + "search/"
         case .cityDetails(let params):
+            ///woeid parametre olarak alınıyor. tipi [String: Any] olmadığı için String  path olarak aldım.
             return cityUrl + params
         }
     }
@@ -47,13 +48,11 @@ enum ApiEndPoint: APIConfiguration {
     func asURLRequest() throws -> URLRequest {
         
         let url = try "https://www.metaweather.com/".asURL()
-        
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         
         // HTTP Method
         urlRequest.httpMethod = method.rawValue
         
-    
         // Parameters
         let encoding: ParameterEncoding = {
             switch method {
