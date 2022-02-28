@@ -76,6 +76,7 @@ final class CityListViewController: UIViewController {
         ///1. Adım
         interactor?.getLocation()
         cityListTableView.register(UINib(nibName: "CityListTableViewCell", bundle: nil), forCellReuseIdentifier: "CityList")
+        hideKeyboardWhenTappedAround()
     }
     
     @objc func callme() {
