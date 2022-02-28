@@ -109,16 +109,16 @@ extension CityDetailsViewController :  CityDetailsDisplayLogic{
     
     func setGif(status: String ){
         switch status {
-        case WeatherStatus.snow.rawValue : cityDetailsImageView.loadGif(asset: "snow")
-        case WeatherStatus.sleet.rawValue : cityDetailsImageView.loadGif(asset: "sleet")
-        case WeatherStatus.hail.rawValue : cityDetailsImageView.loadGif(asset: "hail")
-        case WeatherStatus.thunderstorm.rawValue : cityDetailsImageView.loadGif(asset: "thunderstorm")
-        case WeatherStatus.showers.rawValue : cityDetailsImageView.loadGif(asset: "showers")
-        case WeatherStatus.heavyRain.rawValue : cityDetailsImageView.loadGif(asset: "heavyRain")
-        case WeatherStatus.lightRain.rawValue : cityDetailsImageView.loadGif(asset: "lightRain")
-        case WeatherStatus.heavyCloud.rawValue : cityDetailsImageView.loadGif(asset: "heavyCloud")
-        case WeatherStatus.lightCloud.rawValue : cityDetailsImageView.loadGif(asset: "lightCloud")
-        case WeatherStatus.clear.rawValue : cityDetailsImageView.loadGif(asset: "clear")
+        case WeatherStatus.snow.rawValue : cityDetailsImageView.loadGif(asset: "snowGif")
+        case WeatherStatus.sleet.rawValue : cityDetailsImageView.loadGif(asset: "sleetGif")
+        case WeatherStatus.hail.rawValue : cityDetailsImageView.loadGif(asset: "hailGif")
+        case WeatherStatus.thunderstorm.rawValue : cityDetailsImageView.loadGif(asset: "thunderstormsGif")
+        case WeatherStatus.showers.rawValue : cityDetailsImageView.loadGif(asset: "showersGif")
+        case WeatherStatus.heavyRain.rawValue : cityDetailsImageView.loadGif(asset: "heavyRainGif")
+        case WeatherStatus.lightRain.rawValue : cityDetailsImageView.loadGif(asset: "lightRainGif")
+        case WeatherStatus.heavyCloud.rawValue : cityDetailsImageView.loadGif(asset: "heavyCloudGif")
+        case WeatherStatus.lightCloud.rawValue : cityDetailsImageView.loadGif(asset: "lightCloudGif")
+        case WeatherStatus.clear.rawValue : cityDetailsImageView.loadGif(asset: "clearGif")
         default: break
         }
     }

@@ -33,7 +33,7 @@ enum WeatherStatus: String{
     case hail = "Hail"
     case heavyRain = "Heavy Rain"
     case lightRain = "Light Rain"
-    case thunderstorm = "Thunderstorm"
+    case thunderstorm = "Thunder"
     case showers = "Showers"
     case heavyCloud = "Heavy Cloud"
     case lightCloud = "Light Cloud"
