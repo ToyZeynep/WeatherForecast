@@ -45,6 +45,18 @@ class CityDetailsCollectionViewCell: UICollectionViewCell {
     }
     
     func setImage(status: String){
-        cellImageView.image = UIImage(named: status)
+        switch status {
+        case WeatherStatus.snow.rawValue : cellImageView.image = UIImage(named: "snow")
+        case WeatherStatus.sleet.rawValue : cellImageView.image = UIImage(named: "sleet")
+        case WeatherStatus.hail.rawValue : cellImageView.image = UIImage(named: "hail")
+        case WeatherStatus.thunderstorm.rawValue : cellImageView.image = UIImage(named: "thunder")
+        case WeatherStatus.showers.rawValue : cellImageView.image = UIImage(named: "showers")
+        case WeatherStatus.heavyRain.rawValue : cellImageView.image = UIImage(named: "heavyRain")
+        case WeatherStatus.lightRain.rawValue : cellImageView.image = UIImage(named: "lightRain")
+        case WeatherStatus.heavyCloud.rawValue : cellImageView.image = UIImage(named: "heavyCloud")
+        case WeatherStatus.lightCloud.rawValue : cellImageView.image = UIImage(named: "lightCloud")
+        case WeatherStatus.clear.rawValue : cellImageView.image = UIImage(named: "clear")
+        default: break
+        }
     }
 }
