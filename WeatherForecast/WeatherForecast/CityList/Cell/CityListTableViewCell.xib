@@ -23,14 +23,15 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0cd-5Q-lol">
                                 <rect key="frame" x="0.0" y="0.0" width="655" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="6lw-GW-EiN"/>
                                     <constraint firstAttribute="height" constant="200" id="nvA-ic-QKb"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEK-fl-UZA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEK-fl-UZA">
                                 <rect key="frame" x="15" y="27" width="632" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="o7r-vB-aKL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -40,10 +41,13 @@
                             <constraint firstAttribute="bottom" secondItem="0cd-5Q-lol" secondAttribute="bottom" id="LOX-hC-t6c"/>
                             <constraint firstAttribute="trailing" secondItem="0cd-5Q-lol" secondAttribute="trailing" id="LoU-vh-7Io"/>
                             <constraint firstItem="0cd-5Q-lol" firstAttribute="top" secondItem="Gfp-6f-Fxs" secondAttribute="top" id="PTy-AK-cVG"/>
+                            <constraint firstItem="uEK-fl-UZA" firstAttribute="trailing" secondItem="Gfp-6f-Fxs" secondAttribute="trailingMargin" id="ThQ-9r-yX7"/>
                             <constraint firstItem="0cd-5Q-lol" firstAttribute="leading" secondItem="Gfp-6f-Fxs" secondAttribute="leading" id="Z7K-xs-3kg"/>
                             <constraint firstItem="0cd-5Q-lol" firstAttribute="leading" secondItem="Gfp-6f-Fxs" secondAttribute="leading" id="dWt-k5-tts"/>
+                            <constraint firstItem="uEK-fl-UZA" firstAttribute="leading" secondItem="Gfp-6f-Fxs" secondAttribute="leading" constant="15" id="h2Z-ZN-xwB"/>
                             <constraint firstAttribute="trailing" secondItem="0cd-5Q-lol" secondAttribute="trailing" id="j0f-Qd-6Ar"/>
                             <constraint firstItem="0cd-5Q-lol" firstAttribute="top" secondItem="Gfp-6f-Fxs" secondAttribute="top" id="ru6-zR-UK4"/>
+                            <constraint firstItem="uEK-fl-UZA" firstAttribute="top" secondItem="Gfp-6f-Fxs" secondAttribute="top" constant="27" id="xNS-W2-KpB"/>
                             <constraint firstAttribute="height" constant="200" id="y0L-as-GX3"/>
                         </constraints>
                     </view>
