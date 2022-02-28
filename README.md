@@ -2,7 +2,7 @@
 Weather Forecast
 </h1>
 
-<img src="https://user-images.githubusercontent.com/75203610/155876141-975cdea4-fd22-4e76-96c7-14a2d0421e1d.gif" align="right" width="250" height="200">
+<img src="https://user-images.githubusercontent.com/75203610/155876141-975cdea4-fd22-4e76-96c7-14a2d0421e1d.gif" align="right" width="380" height="400">
 
 WeatherForecast is a weather app that lists cities near your location and you can get daily forecasts using  [MetaWeather](https://www.metaweather.com/) api.
 
@@ -41,10 +41,26 @@ Versions I use:
 - paste `git clone https://github.com/SaniyeToy/WeatherForecast.git` into terminal
 - `pod install` is written to the file path of the application in the terminal and the application is run on xcode
 
+## Screen Shots <a name="ScreenShots"></a>
+
+ <table>
+  <tr>
+    <td>CityList View</td>
+    <td>City Details View</td>
+    <td>List View Search</td>
+
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/75203610/156005617-c7d3372b-805f-4d87-a0b0-5869119faa84.jpeg" width=230 height=480></td>
+    <td><img src="https://user-images.githubusercontent.com/75203610/156005326-4a575677-eecd-4b69-a8d1-e3f33f61d666.jpeg" width=230 height=480></td>
+    <td><img src="https://user-images.githubusercontent.com/75203610/156005246-ee5df9ec-0d5d-48cc-b740-15adc43d53ba.jpeg" width=230 height=480></td>
+   
+  </tr>
+ </table>
+
+https://user-images.githubusercontent.com/75203610/156004885-02d7fa65-32b0-4c28-bead-4a901f4c8b69.mp4
+
+
 ## Communication <a name="Communication"></a>
 - [GitHub](https://github.com/SaniyeToy)
 - [Linkedln](https://www.linkedin.com/in/saniye-toy/)
-
-
-
-
