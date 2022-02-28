@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityList" rowHeight="206" id="KGk-i7-Jjw" customClass="CityListTableViewCell" customModule="WeatherForecast" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="653" height="206"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="653" height="206"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gfp-6f-Fxs">
+                        <rect key="frame" x="-1" y="3" width="655" height="200"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0cd-5Q-lol">
+                                <rect key="frame" x="0.0" y="0.0" width="655" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="nvA-ic-QKb"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEK-fl-UZA">
+                                <rect key="frame" x="15" y="27" width="632" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="o7r-vB-aKL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="0cd-5Q-lol" secondAttribute="bottom" id="LOX-hC-t6c"/>
+                            <constraint firstAttribute="trailing" secondItem="0cd-5Q-lol" secondAttribute="trailing" id="LoU-vh-7Io"/>
+                            <constraint firstItem="0cd-5Q-lol" firstAttribute="top" secondItem="Gfp-6f-Fxs" secondAttribute="top" id="PTy-AK-cVG"/>
+                            <constraint firstItem="uEK-fl-UZA" firstAttribute="trailing" secondItem="Gfp-6f-Fxs" secondAttribute="trailingMargin" id="ThQ-9r-yX7"/>
+                            <constraint firstItem="0cd-5Q-lol" firstAttribute="leading" secondItem="Gfp-6f-Fxs" secondAttribute="leading" id="Z7K-xs-3kg"/>
+                            <constraint firstItem="0cd-5Q-lol" firstAttribute="leading" secondItem="Gfp-6f-Fxs" secondAttribute="leading" id="dWt-k5-tts"/>
+                            <constraint firstItem="uEK-fl-UZA" firstAttribute="leading" secondItem="Gfp-6f-Fxs" secondAttribute="leading" constant="15" id="h2Z-ZN-xwB"/>
+                            <constraint firstAttribute="trailing" secondItem="0cd-5Q-lol" secondAttribute="trailing" id="j0f-Qd-6Ar"/>
+                            <constraint firstItem="0cd-5Q-lol" firstAttribute="top" secondItem="Gfp-6f-Fxs" secondAttribute="top" id="ru6-zR-UK4"/>
+                            <constraint firstItem="uEK-fl-UZA" firstAttribute="top" secondItem="Gfp-6f-Fxs" secondAttribute="top" constant="27" id="xNS-W2-KpB"/>
+                            <constraint firstAttribute="height" constant="200" id="y0L-as-GX3"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Gfp-6f-Fxs" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1.00306" id="3Lw-VM-QRJ"/>
+                    <constraint firstItem="Gfp-6f-Fxs" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="MC4-Sm-wLe"/>
+                    <constraint firstItem="Gfp-6f-Fxs" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cCb-5s-aeh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cityCellImageView" destination="0cd-5Q-lol" id="ytS-5p-bVl"/>
+                <outlet property="cityNameLabel" destination="uEK-fl-UZA" id="kjm-ZE-0CU"/>
+            </connections>
+            <point key="canvasLocation" x="541.304347826087" y="145.3125"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
