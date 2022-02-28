@@ -28,6 +28,7 @@ class CityDetailsInteractor: CityDetailsBusinessLogic, CityDetailsDataStore {
     }
     
     func fetchCityDetails(){
+        ///2. Adım City Listten gelen woeid parametre olarak veriyoruz.
         let param: Int = (city?.woeid)!
         let params: String = String(param)
         self.worker.getCityDetails(params: params){[weak self] result in
@@ -40,7 +41,9 @@ class CityDetailsInteractor: CityDetailsBusinessLogic, CityDetailsDataStore {
                 guard let city = self?.city else{
                     return
                 }
+                ///Hava durumu detaylarını WeatherDetails responsuna cast edip parametre olarak presenter'a gönderiyoruz.
                 self?.presenter?.presentCityWeather(response: Weather.Fetch.Response(weatherDetails: weatherDetails))
+                ///Api'de City details' da city title verisi  bulunmadığı için cityListten gönderdiğimiz city modelini , oluşturduğumuz responsa cast ediyoruz.
                 self?.presenter?.presentCityTitle(response: CityDetails.Fetch.Response(city: city))
             case .failure(let error):
                 self!.presenter?.presentAlert(title: "Error!", message: error.localizedDescription)

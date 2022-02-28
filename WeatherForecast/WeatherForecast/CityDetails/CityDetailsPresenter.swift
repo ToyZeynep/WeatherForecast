@@ -16,13 +16,13 @@ protocol CityDetailsPresentationLogic {
 }
 
 class CityDetailsPresenter: CityDetailsPresentationLogic {
-    
+    ///3. Adım
     weak var viewController: CityDetailsDisplayLogic?
-    
+    ///Title değerini view modelde oluşturduğumuz title' a atıp view controllera gönderiyoruz.
     func presentCityTitle(response: CityDetails.Fetch.Response){
         viewController?.presentCityTitle(viewModel: CityDetails.Fetch.ViewModel(title: response.city?.title))
     }
-    
+    ///3. Adım gelen listeyi viewmodeldeki listemize atıp view controllera  ekrana basılmak üzere gönderiyoruz
     func presentCityWeather(response: Weather.Fetch.Response){
         var weatherDetails: [Weather.Fetch.ViewModel.WeatherDetails] = []
         response.weatherDetails.forEach {
@@ -36,6 +36,7 @@ class CityDetailsPresenter: CityDetailsPresentationLogic {
                                                                          air_pressure:  $0.air_pressure,
                                                                          humidity:  $0.humidity))
         }
+        ///doldurduğumuz listeyi viewController a parametre olarak gönderiyoruz
         viewController?.presentCityWeather(viewModel: Weather.Fetch.ViewModel(weatherDetails: weatherDetails))
     }
     
