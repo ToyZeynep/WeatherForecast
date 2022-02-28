@@ -22,6 +22,7 @@ final class CityListViewController: UIViewController {
     @IBOutlet weak var cityListTableView: UITableView!
     @IBOutlet weak var cityListSearcBar: UISearchBar!
     
+    let imagesArr = [URLString.image0.rawValue , URLString.image16.rawValue ,URLString.image1.rawValue ,URLString.image2.rawValue,URLString.image3.rawValue, URLString.image12.rawValue, URLString.image4.rawValue,URLString.image5.rawValue,URLString.image6.rawValue,  URLString.image13.rawValue ,URLString.image7.rawValue,URLString.image8.rawValue , URLString.image9.rawValue, URLString.image10.rawValue , URLString.image11.rawValue, URLString.image14.rawValue , URLString.image15.rawValue]
     var timer = Timer()
     var counter = 0{
         didSet{
@@ -108,9 +109,6 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.cityNameLabel.text = model.title
-    
-        let imagesArr = [URLString.image0.rawValue , URLString.image16.rawValue ,URLString.image1.rawValue ,URLString.image2.rawValue,URLString.image3.rawValue, URLString.image12.rawValue, URLString.image4.rawValue,URLString.image5.rawValue,URLString.image6.rawValue,  URLString.image13.rawValue ,URLString.image7.rawValue,URLString.image8.rawValue , URLString.image9.rawValue, URLString.image10.rawValue , URLString.image11.rawValue, URLString.image14.rawValue , URLString.image15.rawValue]
-        
         cell.cityCellImageView.kf.setImage(with: URL(string: imagesArr[counter]))
         counter = counter + 1
         return cell
