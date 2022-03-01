@@ -21,5 +21,11 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSLocationUsageDescription</key>
+	<string>In order to show your location on the map, you need to allow location services.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>In order to show your location on the map, you need to allow location services.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>In order to show your location on the map, you need to allow location services.</string>
 </dict>
 </plist>
