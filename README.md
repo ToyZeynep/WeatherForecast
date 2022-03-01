@@ -12,8 +12,9 @@ WeatherForecast is a weather app that lists cities near your location and you ca
 4. [Usage](#Usage)
 5. [Requiremonts](#Requiremonts)
 6. [Installation](#Installation)
-7. [Screen Shots](#ScreenShots)
-8. [Communication](#Communication)
+7. [Warning](#Warning)
+8. [Screen Shots](#ScreenShots)
+9. [Communication](#Communication)
 
 ## Features<a name="Features"></a>
 - With user interface UI design
@@ -40,6 +41,13 @@ Versions I use:
 ## Installation <a name="Installation"></a>
 - paste `git clone https://github.com/SaniyeToy/WeatherForecast.git` into terminal
 - `pod install` is written to the file path of the application in the terminal and the application is run on xcode
+ 
+
+## Warning <a name="Warning"></a>
+- if you are getting a `Error domain kclerrordomain code 0 null`  error
+- Go to :
+Product -> Scheme -> Edit Scheme -> Options -> Allow Location Simulation must be checked and try providing a default location, don't leave it set to "none"
+And restart Xcode and you're done :)
 
 ## Screen Shots <a name="ScreenShots"></a>
 
