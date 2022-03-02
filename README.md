@@ -72,3 +72,6 @@ https://user-images.githubusercontent.com/75203610/156004885-02d7fa65-32b0-4c28-
 ## Communication <a name="Communication"></a>
 - [GitHub](https://github.com/SaniyeToy)
 - [Linkedln](https://www.linkedin.com/in/saniye-toy/)
+
+
+## For the version of the same project I wrote using the MVVM architecture and the Rx library    -> https://github.com/SaniyeToy/WeatherRx
