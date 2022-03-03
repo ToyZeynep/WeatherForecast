@@ -127,7 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				22AA5FD327CD325500BAC356 /* Presentation */,
-				22008D4A27C776D2004727B2 /* Network */,
 				22008D4127C7719B004727B2 /* Data */,
 				22008D7F27C7BB93004727B2 /* Util */,
 				22008D2D27C76F81004727B2 /* AppDelegate.swift */,
@@ -210,6 +209,7 @@
 				22008D6C27C7B058004727B2 /* CityDetailsModels.swift */,
 				22008D7427C7B677004727B2 /* CityDetailsRouter.swift */,
 				22008D7627C7B726004727B2 /* CityDetails.storyboard */,
+				22008D4A27C776D2004727B2 /* Network */,
 			);
 			path = CityDetails;
 			sourceTree = "<group>";

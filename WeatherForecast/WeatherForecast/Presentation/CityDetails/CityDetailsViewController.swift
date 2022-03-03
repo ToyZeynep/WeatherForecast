@@ -112,7 +112,7 @@ extension CityDetailsViewController :  CityDetailsDisplayLogic{
         case WeatherStatus.snow.rawValue : cityDetailsImageView.loadGif(asset: "snowGif")
         case WeatherStatus.sleet.rawValue : cityDetailsImageView.loadGif(asset: "sleetGif")
         case WeatherStatus.hail.rawValue : cityDetailsImageView.loadGif(asset: "hailGif")
-        case WeatherStatus.thunderstorm.rawValue : cityDetailsImageView.loadGif(asset: "thunderstormsGif")
+        case WeatherStatus.thunderstorm.rawValue : cityDetailsImageView.loadGif(asset: "thunderGif")
         case WeatherStatus.showers.rawValue : cityDetailsImageView.loadGif(asset: "showersGif")
         case WeatherStatus.heavyRain.rawValue : cityDetailsImageView.loadGif(asset: "heavyRainGif")
         case WeatherStatus.lightRain.rawValue : cityDetailsImageView.loadGif(asset: "lightRainGif")
