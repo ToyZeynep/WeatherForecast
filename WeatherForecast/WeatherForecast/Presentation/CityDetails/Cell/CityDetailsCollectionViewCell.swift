@@ -35,7 +35,6 @@ class CityDetailsCollectionViewCell: UICollectionViewCell {
     
     func configure(viewModel: Weather.Fetch.ViewModel.WeatherDetails){
         cellTempLabel.text = (viewModel.the_temp?.toString())! +  "°"
-        cellDateLabel.text = viewModel.applicable_date
         cellWindLabel.text = "Wind: " + (viewModel.wind_speed?.toString())! + " m/s"
         cellHumidityLabel.text = "Humidity: %" + (viewModel.humidity?.toString())!
         setImage(status: viewModel.weather_state_name!)

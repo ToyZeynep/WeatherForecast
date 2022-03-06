@@ -27,6 +27,10 @@ class CityDetailsInteractor: CityDetailsBusinessLogic, CityDetailsDataStore {
         self.worker = worker
     }
     
+    func addFavorites(city: CityListResponse){
+        RealmHelper.sharedInstance.addCityToFavorites(city: city)
+    }
+    
     func fetchCityDetails(){
         ///2. Adım City Listten gelen woeid parametre olarak veriyoruz.
         let param: Int = (city?.woeid)!

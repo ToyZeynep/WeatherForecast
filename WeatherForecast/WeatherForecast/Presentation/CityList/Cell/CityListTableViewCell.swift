@@ -11,6 +11,7 @@ class CityListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityCellImageView: UIImageView!
+    @IBOutlet weak var addFavoritesButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +25,7 @@ class CityListTableViewCell: UITableViewCell {
         contentView.backgroundColor = UIColor.white
         contentView.layer.borderColor = UIColor.systemBlue.cgColor
         contentView.layer.borderWidth = 0.7
-        contentView.clipsToBounds = true
+        contentView.clipsToBounds = true  
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -12,6 +12,7 @@ import CoreLocation
 protocol CityListBusinessLogic: AnyObject {
     func fetchCityList(params: [String: Any])
     func getLocation()
+    func addToFavorites(index: Int)
 }
 
 protocol CityListDataStore: AnyObject {
@@ -39,6 +40,11 @@ final class CityListInteractor: NSObject ,CityListBusinessLogic, CityListDataSto
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
         }
         checkLocationPermission()
+    }
+    
+    
+    func addToFavorites(index: Int){
+        RealmHelper.sharedInstance.addCityToFavorites(city: (cityList?[index])!)
     }
     
     func checkLocationPermission() {

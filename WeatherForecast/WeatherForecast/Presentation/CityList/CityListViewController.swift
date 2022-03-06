@@ -108,9 +108,19 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let model = self.viewModel?.cityList[indexPath.row]  else {
             return UITableViewCell()
         }
+        cell.addFavoritesButton.setImage(UIImage(named: "favorite1")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        cell.addFavoritesButton.tintColor = .red
+        cell.addFavoritesButton.sizeToFit()
+        cell.addFavoritesButton.layer.cornerRadius = 25
+        cell.addFavoritesButton.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+       
         cell.cityNameLabel.text = model.title
         cell.cityCellImageView.kf.setImage(with: URL(string: imagesArr[counter]))
         counter = counter + 1
+          cell.addFavoritesButton.addTapGesture {
+              self.interactor?.addToFavorites(index: indexPath.row)
+              print("tıklandı")
+        }
         return cell
     }
     

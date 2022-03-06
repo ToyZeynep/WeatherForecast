@@ -22,7 +22,7 @@ enum CityList{
             
             struct City {
                 
-                let distance : Int?
+         
                 let title : String?
                 let location_type : String?
                 let woeid : Int?

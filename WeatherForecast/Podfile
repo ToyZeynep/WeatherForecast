@@ -9,4 +9,6 @@ target 'WeatherForecast' do
   pod 'Alamofire', '~> 5.5'
   pod 'Kingfisher', '~> 7.0'
   pod 'SwiftGifOrigin', '~> 1.7.0'
+  pod 'RealmSwift'
+  pod 'SnackBar.swift'
 end
