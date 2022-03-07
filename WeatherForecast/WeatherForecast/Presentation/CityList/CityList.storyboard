@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="azd-TK-HkS">
-                                <rect key="frame" x="0.0" y="98" width="414" height="45"/>
+                                <rect key="frame" x="0.0" y="98" width="336" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="sKx-Ma-rU5"/>
                                 </constraints>
@@ -34,17 +34,31 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="Cwy-62-sE9"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIW-IR-fzG">
+                                <rect key="frame" x="347" y="98" width="67" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="5sp-8I-2QD"/>
+                                    <constraint firstAttribute="width" constant="67" id="hAD-h7-BJS"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system">
+                                    <color key="baseForegroundColor" systemColor="systemPinkColor"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="AIW-IR-fzG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="0ES-fo-sBt"/>
                             <constraint firstItem="OoU-mM-uAB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="14l-nE-8Qx"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="OoU-mM-uAB" secondAttribute="bottom" id="3QL-Gi-nB3"/>
                             <constraint firstItem="azd-TK-HkS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="6a3-XG-BtC"/>
                             <constraint firstItem="azd-TK-HkS" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="CcC-Yx-cvW"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="azd-TK-HkS" secondAttribute="trailing" id="PyF-Iy-LVP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="azd-TK-HkS" secondAttribute="trailing" constant="78" id="PyF-Iy-LVP"/>
+                            <constraint firstItem="AIW-IR-fzG" firstAttribute="leading" secondItem="azd-TK-HkS" secondAttribute="trailing" constant="11" id="UcQ-aP-WnV"/>
                             <constraint firstItem="OoU-mM-uAB" firstAttribute="top" secondItem="azd-TK-HkS" secondAttribute="bottom" constant="10" id="clK-4S-DHS"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OoU-mM-uAB" secondAttribute="trailing" id="plV-wU-dOc"/>
+                            <constraint firstItem="AIW-IR-fzG" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="yKq-9I-pU6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pLU-oZ-lFx"/>
@@ -81,8 +95,12 @@
     </scenes>
     <color key="tintColor" red="0.12549019610000001" green="0.73725490199999999" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

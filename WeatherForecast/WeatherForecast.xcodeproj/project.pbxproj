@@ -44,6 +44,13 @@
 		22062FD027CA61B000286968 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22062FCF27CA61B000286968 /* SplashView.swift */; };
 		22062FD227CA61DB00286968 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22062FD127CA61DB00286968 /* Splash.storyboard */; };
 		22062FD427CA921B00286968 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 22062FD327CA921B00286968 /* Settings.bundle */; };
+		224A2AFF27D6997F0006A441 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A2AFE27D6997F0006A441 /* FavoriteViewController.swift */; };
+		224A2B0127D69B910006A441 /* FavoriteListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A2B0027D69B910006A441 /* FavoriteListInteractor.swift */; };
+		224A2B0327D69CAF0006A441 /* FavoriteListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A2B0227D69CAF0006A441 /* FavoriteListPresenter.swift */; };
+		224A2B0527D69CC20006A441 /* FavoriteListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A2B0427D69CC20006A441 /* FavoriteListModels.swift */; };
+		224A2B0727D69CE10006A441 /* FavoriteListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A2B0627D69CE10006A441 /* FavoriteListRouter.swift */; };
+		224A2B0927D69D2E0006A441 /* FavoriteList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224A2B0827D69D2E0006A441 /* FavoriteList.storyboard */; };
+		224A2B0B27D69D9E0006A441 /* FavoriteListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A2B0A27D69D9E0006A441 /* FavoriteListWorker.swift */; };
 		229E4D2027D3EC2E0062D76F /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E4D1F27D3EC2E0062D76F /* RealmHelper.swift */; };
 		229E4D2227D3F01B0062D76F /* SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E4D2127D3F01B0062D76F /* SnackBar.swift */; };
 		6E19A2D463417A90DE037E67 /* Pods_WeatherForecast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0673FC9D82556732CB2B0BD8 /* Pods_WeatherForecast.framework */; };
@@ -90,6 +97,13 @@
 		22062FCF27CA61B000286968 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		22062FD127CA61DB00286968 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		22062FD327CA921B00286968 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		224A2AFE27D6997F0006A441 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		224A2B0027D69B910006A441 /* FavoriteListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListInteractor.swift; sourceTree = "<group>"; };
+		224A2B0227D69CAF0006A441 /* FavoriteListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListPresenter.swift; sourceTree = "<group>"; };
+		224A2B0427D69CC20006A441 /* FavoriteListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListModels.swift; sourceTree = "<group>"; };
+		224A2B0627D69CE10006A441 /* FavoriteListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListRouter.swift; sourceTree = "<group>"; };
+		224A2B0827D69D2E0006A441 /* FavoriteList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoriteList.storyboard; sourceTree = "<group>"; };
+		224A2B0A27D69D9E0006A441 /* FavoriteListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListWorker.swift; sourceTree = "<group>"; };
 		229E4D1F27D3EC2E0062D76F /* RealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		229E4D2127D3F01B0062D76F /* SnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBar.swift; sourceTree = "<group>"; };
 		BDA8E562C49E3A347D431751 /* Pods-WeatherForecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.debug.xcconfig"; path = "Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.debug.xcconfig"; sourceTree = "<group>"; };
@@ -251,9 +265,24 @@
 			path = Splash;
 			sourceTree = "<group>";
 		};
+		224A2AFD27D699650006A441 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				224A2AFE27D6997F0006A441 /* FavoriteViewController.swift */,
+				224A2B0027D69B910006A441 /* FavoriteListInteractor.swift */,
+				224A2B0227D69CAF0006A441 /* FavoriteListPresenter.swift */,
+				224A2B0427D69CC20006A441 /* FavoriteListModels.swift */,
+				224A2B0627D69CE10006A441 /* FavoriteListRouter.swift */,
+				224A2B0A27D69D9E0006A441 /* FavoriteListWorker.swift */,
+				224A2B0827D69D2E0006A441 /* FavoriteList.storyboard */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		22AA5FD327CD325500BAC356 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				224A2AFD27D699650006A441 /* Favorites */,
 				22062FCE27CA617800286968 /* Splash */,
 				22008D5327C77CBE004727B2 /* CityList */,
 				22008D6727C7A373004727B2 /* CityDetails */,
@@ -339,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22062FD427CA921B00286968 /* Settings.bundle in Resources */,
+				224A2B0927D69D2E0006A441 /* FavoriteList.storyboard in Resources */,
 				22008D6527C7858F004727B2 /* CityListTableViewCell.xib in Resources */,
 				22008D7E27C7B859004727B2 /* CityDetailsCollectionViewCell.xib in Resources */,
 				22008D3727C76F83004727B2 /* Assets.xcassets in Resources */,
@@ -399,15 +429,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				22008D7127C7B297004727B2 /* CityDetailsPresenter.swift in Sources */,
+				224A2B0B27D69D9E0006A441 /* FavoriteListWorker.swift in Sources */,
 				229E4D2027D3EC2E0062D76F /* RealmHelper.swift in Sources */,
+				224A2B0527D69CC20006A441 /* FavoriteListModels.swift in Sources */,
 				22062FCD27CA32D400286968 /* DateExtension.swift in Sources */,
+				224A2B0727D69CE10006A441 /* FavoriteListRouter.swift in Sources */,
 				22008D5F27C7824B004727B2 /* CityListRouter.swift in Sources */,
 				22008D8727C81714004727B2 /* Constants.swift in Sources */,
 				22008D7527C7B677004727B2 /* CityDetailsRouter.swift in Sources */,
 				22008D8327C7C50A004727B2 /* Alert.swift in Sources */,
 				22008D8127C7BBAD004727B2 /* GridFlowLayout.swift in Sources */,
+				224A2B0327D69CAF0006A441 /* FavoriteListPresenter.swift in Sources */,
 				22008D4727C773E5004727B2 /* CityDetailsResponse.swift in Sources */,
 				22008D7327C7B400004727B2 /* CityDetailsViewController.swift in Sources */,
+				224A2AFF27D6997F0006A441 /* FavoriteViewController.swift in Sources */,
 				22008D5527C77CED004727B2 /* CityListWorker.swift in Sources */,
 				22008D5227C77BBD004727B2 /* ApiClient.swift in Sources */,
 				22008D4527C773A9004727B2 /* CityListResponse.swift in Sources */,
@@ -426,6 +461,7 @@
 				22008D5927C77EDD004727B2 /* CityListInteractor.swift in Sources */,
 				22008D6427C7858F004727B2 /* CityListTableViewCell.swift in Sources */,
 				22062FC327CA0DC200286968 /* ActivityIndicator.swift in Sources */,
+				224A2B0127D69B910006A441 /* FavoriteListInteractor.swift in Sources */,
 				22062FD027CA61B000286968 /* SplashView.swift in Sources */,
 				22008D5B27C78074004727B2 /* CityListPresenter.swift in Sources */,
 				22008D6D27C7B058004727B2 /* CityDetailsModels.swift in Sources */,
