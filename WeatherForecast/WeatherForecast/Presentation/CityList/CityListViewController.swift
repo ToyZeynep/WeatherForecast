@@ -108,18 +108,16 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let model = self.viewModel?.cityList[indexPath.row]  else {
             return UITableViewCell()
         }
-        cell.addFavoritesButton.setImage(UIImage(named: "favorite1")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        cell.addFavoritesButton.tintColor = .red
-        cell.addFavoritesButton.sizeToFit()
-        cell.addFavoritesButton.layer.cornerRadius = 25
-        cell.addFavoritesButton.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
-       
+     
+        cell.addFavoritesButton.tintColor = .white
         cell.cityNameLabel.text = model.title
         cell.cityCellImageView.kf.setImage(with: URL(string: imagesArr[counter]))
         counter = counter + 1
-          cell.addFavoritesButton.addTapGesture {
+        favoriCityStatus(button: cell.addFavoritesButton, model: model)
+        cell.addFavoritesButton.addTapGesture { [self] in
               self.interactor?.addToFavorites(index: indexPath.row)
               print("tıklandı")
+              changeFavoriteStatus(button: cell.addFavoritesButton)
         }
         return cell
     }
@@ -130,6 +128,30 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
+    }
+    
+    func favoriCityStatus(button: UIButton , model: CityList.Fetch.ViewModel.City) {
+        let favoriteList = RealmHelper.sharedInstance.fetchFavoriteList().map { $0 }
+        if let position = favoriteList.firstIndex(where: {$0.woeid == model.woeid}){
+            button.setImage(UIImage(systemName: "heart.fill")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            button.tintColor = .red
+        } else {
+            button.setImage(UIImage(systemName: "heart.fill")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            button.tintColor = .white
+        }
+    }
+    func changeFavoriteStatus(button:UIButton){
+        switch button.tintColor {
+        case UIColor.white:
+            button.tintColor = .red
+        case UIColor.red:
+            button.tintColor = .white
+        case .none:
+            break
+        case .some(_):
+            break
+        }
+        
     }
 }
 

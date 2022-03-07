@@ -35,18 +35,17 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYH-Oo-H9B">
-                                <rect key="frame" x="590" y="50" width="50" height="50"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CYH-Oo-H9B">
+                                <rect key="frame" x="590" y="35" width="50" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="3Dp-ox-hqW"/>
-                                    <constraint firstAttribute="width" constant="50" id="60c-c5-WsT"/>
+                                    <constraint firstAttribute="height" constant="50" id="3Dp-ox-hqW" userLabel="height = 70"/>
+                                    <constraint firstAttribute="width" constant="50" id="60c-c5-WsT" userLabel="width = 70"/>
                                 </constraints>
-                                <color key="tintColor" red="0.37328006359999999" green="0.044264098629999998" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="favorite" title="">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
-                                    <directionalEdgeInsets key="contentInsets" top="10" leading="10" bottom="10" trailing="10"/>
+                                <buttonConfiguration key="configuration" style="plain" title="">
+                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                 </buttonConfiguration>
                             </button>
                         </subviews>
@@ -58,7 +57,7 @@
                             <constraint firstItem="0cd-5Q-lol" firstAttribute="leading" secondItem="Gfp-6f-Fxs" secondAttribute="leading" id="Z7K-xs-3kg"/>
                             <constraint firstItem="0cd-5Q-lol" firstAttribute="leading" secondItem="Gfp-6f-Fxs" secondAttribute="leading" id="dWt-k5-tts"/>
                             <constraint firstItem="uEK-fl-UZA" firstAttribute="leading" secondItem="Gfp-6f-Fxs" secondAttribute="leading" constant="15" id="h2Z-ZN-xwB"/>
-                            <constraint firstItem="CYH-Oo-H9B" firstAttribute="top" secondItem="Gfp-6f-Fxs" secondAttribute="top" constant="50" id="i0n-0s-Uym"/>
+                            <constraint firstItem="CYH-Oo-H9B" firstAttribute="top" secondItem="Gfp-6f-Fxs" secondAttribute="top" constant="35" id="i0n-0s-Uym"/>
                             <constraint firstAttribute="trailing" secondItem="0cd-5Q-lol" secondAttribute="trailing" id="j0f-Qd-6Ar"/>
                             <constraint firstItem="0cd-5Q-lol" firstAttribute="top" secondItem="Gfp-6f-Fxs" secondAttribute="top" id="ru6-zR-UK4"/>
                             <constraint firstAttribute="trailing" secondItem="CYH-Oo-H9B" secondAttribute="trailing" constant="15" id="wkx-fd-4VZ"/>
@@ -83,7 +82,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="favorite" width="765" height="720"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
