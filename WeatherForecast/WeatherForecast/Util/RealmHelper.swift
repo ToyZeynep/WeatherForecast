@@ -20,7 +20,7 @@ class RealmHelper {
     
     func addCityToFavorites(city: CityListResponse) {
         try! database.write {
-            //database.add(characterDetails)
+          //  database.add(city)
             database.create(CityListResponse.self, value: city)
         }
     }
@@ -37,11 +37,9 @@ class RealmHelper {
     }
     
     func deleteFromDb(city: CityListResponse)   {
+    
         try! database.write {
             database.delete(city)
         }
     }
 }
-
-
-

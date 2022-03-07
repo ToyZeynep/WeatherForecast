@@ -108,16 +108,21 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let model = self.viewModel?.cityList[indexPath.row]  else {
             return UITableViewCell()
         }
-     
-        cell.addFavoritesButton.tintColor = .white
         cell.cityNameLabel.text = model.title
         cell.cityCellImageView.kf.setImage(with: URL(string: imagesArr[counter]))
         counter = counter + 1
         favoriCityStatus(button: cell.addFavoritesButton, model: model)
         cell.addFavoritesButton.addTapGesture { [self] in
-              self.interactor?.addToFavorites(index: indexPath.row)
-              print("tıklandı")
-              changeFavoriteStatus(button: cell.addFavoritesButton)
+            
+            let favoriteList = RealmHelper.sharedInstance.fetchFavoriteList().map { $0 }
+            if let position = favoriteList.firstIndex(where: {$0.woeid == model.woeid}){
+                self.interactor?.deleteFromFavorites(index: position)
+                cell.addFavoritesButton.tintColor = .white
+            }
+            else {
+                self.interactor?.addToFavorites(index: indexPath.row)
+                cell.addFavoritesButton.tintColor = .red
+            }
         }
         return cell
     }
@@ -138,18 +143,6 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             button.setImage(UIImage(systemName: "heart.fill")?.withRenderingMode(.alwaysTemplate), for: .normal)
             button.tintColor = .white
-        }
-    }
-    func changeFavoriteStatus(button:UIButton){
-        switch button.tintColor {
-        case UIColor.white:
-            button.tintColor = .red
-        case UIColor.red:
-            button.tintColor = .white
-        case .none:
-            break
-        case .some(_):
-            break
         }
     }
 }
