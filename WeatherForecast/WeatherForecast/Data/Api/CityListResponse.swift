@@ -10,7 +10,6 @@ import RealmSwift
 
  class CityListResponse: Object , Codable {
     
-    
     @objc dynamic var title : String?
     @objc dynamic var location_type : String?
     @objc dynamic var woeid = 0

@@ -151,7 +151,6 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         case .some(_):
             break
         }
-        
     }
 }
 
