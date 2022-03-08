@@ -27,7 +27,7 @@ class RealmHelper {
     
     func fetchFavoriteList() -> Results<CityListResponse> {
         let object = database.objects(CityListResponse.self)
-        return object;
+        return object
     }
     
     func deleteAllFromDatabase()  {

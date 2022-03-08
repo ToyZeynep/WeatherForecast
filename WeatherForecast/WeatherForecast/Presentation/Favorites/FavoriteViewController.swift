@@ -31,6 +31,7 @@ final class FavoriteListViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var favoriteListTableView: UITableView!
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -63,14 +64,26 @@ final class FavoriteListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "FavoriteList"
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
-        
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.red]
+        self.navigationController?.navigationBar.tintColor = UIColor.red
+        let image = UIImage(named: "delete")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image , style: .plain, target: self, action: #selector(addTapped))
+        navigationItem.rightBarButtonItem?.imageInsets = UIEdgeInsets(top: 3, left: 3, bottom: -4, right: -3)
+    }
+    
+    @objc func addTapped(){
+      
+        RealmHelper.sharedInstance.deleteAllFromDatabase()
+        self.interactor?.fetchFavoriteList()
+      
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        interactor?.fetchFavoriteList()
         CustomLoader.instance.showLoaderView()
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(callme), userInfo: nil, repeats: false)
+        favoriteListTableView.register(UINib(nibName: "FavoriteListTableViewCell", bundle: nil), forCellReuseIdentifier: "FavoriteListCell")
     }
     
     @objc func callme() {
@@ -81,8 +94,52 @@ final class FavoriteListViewController: UIViewController {
 // MARK: - Display view model from City List Presenter
 
 extension FavoriteListViewController : FavoriteListDisplayLogic{
-    ///4. Adım gelen veriyi ekrana basıyoruz
+    
     func displayFavoriteList(viewModel: FavoriteList.Fetch.ViewModel) {
         self.viewModel = viewModel
+    }
+}
+
+extension FavoriteListViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel?.favoriteList.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteListCell", for: indexPath) as! FavoriteListTableViewCell
+        guard let model = self.viewModel?.favoriteList[indexPath.row]  else {
+            return UITableViewCell()
+        }
+        cell.cityTitleLabel.text = model.title
+        cell.cityImageView.kf.setImage(with: URL(string: imagesArr[counter]))
+        counter = counter + 1
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        router?.routeToCityDetails(index: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        viewModel?.favoriteList.remove(at: indexPath.row)
+        self.favoriteListTableView.deleteRows(at: [indexPath], with: .automatic)
+        self.interactor?.deleteFromFavorites(index: indexPath.row)
+    }
+    
+    func favoriCityStatus(button: UIButton , model: FavoriteList.Fetch.ViewModel.City) {
+        let favoriteList = RealmHelper.sharedInstance.fetchFavoriteList().map { $0 }
+        if let position = favoriteList.firstIndex(where: {$0.woeid == model.woeid}){
+            button.setImage(UIImage(systemName: "heart.fill")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            button.tintColor = .red
+        } else {
+            button.setImage(UIImage(systemName: "heart.fill")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            button.tintColor = .white
+        }
     }
 }

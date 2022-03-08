@@ -19,7 +19,7 @@ enum FavoriteList{
         
         struct ViewModel{
             
-            var favoriteList: [CityList.Fetch.ViewModel.City]
+            var favoriteList: [FavoriteList.Fetch.ViewModel.City]
             
             struct City {
                 

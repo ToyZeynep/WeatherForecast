@@ -11,6 +11,7 @@ import UIKit
 protocol FavoriteListBusinessLogic: AnyObject {
     
     func deleteFromFavorites(index: Int)
+    func fetchFavoriteList()
 }
 
 protocol FavoriteListDataStore: AnyObject {
@@ -21,18 +22,23 @@ final class FavoriteListInteractor: FavoriteListBusinessLogic, FavoriteListDataS
     var favoriteList: [CityListResponse]?
     var presenter: FavoriteListPresentationLogic?
     var worker: FavoriteListWorkingLogic?
-    var cityList:[CityListResponse]?
+ 
     
     
     func deleteFromFavorites(index: Int){
         let favoriteList = RealmHelper.sharedInstance.fetchFavoriteList().map { $0 }
-        if let position = favoriteList.firstIndex(where: {$0.woeid == cityList?[index].woeid}){
+        if let position = favoriteList.firstIndex(where: {$0.woeid == favoriteList[index].woeid}){
             RealmHelper.sharedInstance.deleteFromDb(city: favoriteList[position])
         }
     }
     
     
-    func fetchFavoriteList(params: [String: Any] ){
-    
+    func fetchFavoriteList(){
+        
+        let favoriteList = RealmHelper.sharedInstance.fetchFavoriteList().map { $0 }
+        var list:[CityListResponse] = [CityListResponse]()
+        list.append(contentsOf: favoriteList)
+        self.favoriteList = list
+        self.presenter?.presentFavoriteList(response: FavoriteList.Fetch.Response(favoriteList: self.favoriteList!))
     }
 }

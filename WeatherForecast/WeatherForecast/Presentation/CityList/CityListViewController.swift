@@ -66,8 +66,9 @@ final class CityListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "CityList"
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
         self.navigationItem.setHidesBackButton(true, animated: true)
+        cityListTableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -83,6 +84,11 @@ final class CityListViewController: UIViewController {
     @objc func callme() {
         CustomLoader.instance.hideLoaderView()
     }
+    
+    @IBAction func favoritesButton(_ sender: Any) {
+        router?.routeToFavorites()
+    }
+    
 }
 
 // MARK: - Display view model from City List Presenter

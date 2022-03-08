@@ -10,6 +10,7 @@ import UIKit
 
 protocol CityListRoutingLogic: AnyObject {
     func routeToCityDetails(index: Int)
+    func routeToFavorites()
 }
 
 protocol CityListDataPassing: AnyObject {
@@ -17,6 +18,15 @@ protocol CityListDataPassing: AnyObject {
 }
 
 class CityListRouter: CityListRoutingLogic, CityListDataPassing {
+    func routeToFavorites() {
+        let storyBoard = UIStoryboard(name: "FavoriteList", bundle: nil)
+        let destVC: FavoriteListViewController = storyBoard.instantiateViewController(identifier: "FavoriteList")
+        destVC.modalPresentationStyle = .fullScreen
+        viewController?.navigationController?.pushViewController(destVC, animated: true)
+    }
+    
+
+    
     weak var viewController: CityListViewController?
     var dataStore: CityListDataStore?
     
