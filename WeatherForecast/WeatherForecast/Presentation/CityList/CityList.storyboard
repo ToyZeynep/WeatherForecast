@@ -65,6 +65,7 @@
                     <connections>
                         <outlet property="cityListSearcBar" destination="azd-TK-HkS" id="TLJ-Jg-FVn"/>
                         <outlet property="cityListTableView" destination="OoU-mM-uAB" id="THI-4h-Qtc"/>
+                        <outlet property="favoritesButton" destination="AIW-IR-fzG" id="W4s-wp-mot"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

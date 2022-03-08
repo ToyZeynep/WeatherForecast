@@ -21,6 +21,7 @@ final class CityListViewController: UIViewController {
     
     @IBOutlet weak var cityListTableView: UITableView!
     @IBOutlet weak var cityListSearcBar: UISearchBar!
+    @IBOutlet weak var favoritesButton: UIButton!
     
     let imagesArr = [URLString.image0.rawValue , URLString.image16.rawValue ,URLString.image1.rawValue ,URLString.image2.rawValue,URLString.image3.rawValue, URLString.image12.rawValue, URLString.image4.rawValue,URLString.image5.rawValue,URLString.image6.rawValue,  URLString.image13.rawValue ,URLString.image7.rawValue,URLString.image8.rawValue , URLString.image9.rawValue, URLString.image10.rawValue , URLString.image11.rawValue, URLString.image14.rawValue , URLString.image15.rawValue]
     var timer = Timer()
@@ -69,6 +70,8 @@ final class CityListViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
         self.navigationItem.setHidesBackButton(true, animated: true)
         cityListTableView.reloadData()
+        favoritesButton.setImage(UIImage(named: "heart")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        favoritesButton.tintColor = .red
     }
     
     override func viewDidLoad() {
